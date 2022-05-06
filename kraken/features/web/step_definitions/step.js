@@ -18,8 +18,8 @@ When('I click log in', async function () {
 });
 
 When('I new post click', async function () {
-    let elementPost = await this.driver.$('//a[@href=\'#/posts/\']');
-    elementPost.click();
+    let elementPost = this.driver.$('//ul[@class=\'gh-nav-list gh-nav-manage\']/li[@class=\'gh-nav-list-new relative\']/a[@href=\'#/posts/\'][text()=\'Posts\']');
+    await elementPost.click();
     await sleep(2000);
     let buttonElement = await this.driver.$('//a[@title=\'New post\'][@href=\'#/editor/post/\']');
     buttonElement.click();
@@ -56,15 +56,34 @@ When('I back to lists post', async function () {
     element.click();
 })
 
-When('I validate the title of post', async function () {
+When('I validate the title of post {int}', async function (item) {
     let elementList = await this.driver.$('//span[@class=\'ember-power-select-selected-item\']');
     elementList.click();
     await sleep(2000);
-    let elementPublish = await this.driver.$('//li[@class=\'ember-power-select-option\'][@data-option-index=\'2\']');
+    let elementPublish = await this.driver.$('//li[@class=\'ember-power-select-option\'][@data-option-index=\''+item+'\']');
     elementPublish.click();
     await sleep(2000);
     let elementText = await this.driver.$('//h3[@class=\'gh-content-entry-title\']').getText();
     console.log(elementText);
+})
+
+
+When('I click publish program', async function () {
+    let element = await this.driver.$('//div[@class=\'gh-publishmenu-radio-label\'][text()=\'Schedule it for later\']');
+    element.click();
+    await sleep(2000)
+    let elementSchedule = await this.driver.$('//button[@class=\'gh-btn gh-btn-black gh-publishmenu-button gh-btn-icon ember-view\']/span[text()=\'Schedule\']');
+    elementSchedule.click();
+})
+
+When('I write the title with length {int}', async function (value) {
+    let element = await this.driver.$('//textarea[@placeholder=\'Post title\'][@class=\'gh-editor-title ember-text-area gh-input ember-view\']');
+    await element.setValue(titleRandom(value));
+})
+
+When('I wait message error', async function () {
+    let element = await this.driver.$('//article[@class=\'gh-alert gh-alert-red ember-view\']');
+    element.click();
 })
 
 function sleep(ms) {
@@ -73,5 +92,10 @@ function sleep(ms) {
     });
 }
 
-
-
+function titleRandom(len){
+    let title = ''
+    for (let i = 0; i < len; i++) {
+        title += 'a'
+    }
+    return title;
+}
