@@ -4,7 +4,7 @@ Feature: Creación de un post
   Scenario: Creación exitosa de un post
     Given I navigate to page 'http://localhost:2368/ghost/'
     And I wait for 5 seconds
-    When I enter email 'prueba@example.com' and pass 'prueba@example.com123456789'
+    When I enter email "<USER>" and pass "<PASSWORD>"
     And I wait for 5 seconds
     And I click log in
     And I wait for 5 seconds
@@ -29,7 +29,7 @@ Feature: Creación de un post
   Scenario: Creación exitosa de un post programada
     Given I navigate to page 'http://localhost:2368/ghost/'
     And I wait for 5 seconds
-    When I enter email 'prueba@example.com' and pass 'prueba@example.com123456789'
+    When I enter email "<USER>" and pass "<PASSWORD>"
     And I wait for 5 seconds
     And I click log in
     And I wait for 5 seconds
@@ -54,7 +54,7 @@ Feature: Creación de un post
   Scenario: Intento de creación de un post con titulo superior de 255 caracteres.
     Given I navigate to page 'http://localhost:2368/ghost/'
     And I wait for 5 seconds
-    When I enter email 'prueba@example.com' and pass 'prueba@example.com123456789'
+    When I enter email "<USER>" and pass "<PASSWORD>"
     And I wait for 5 seconds
     And I click log in
     And I wait for 5 seconds
@@ -78,7 +78,7 @@ Feature: Creación de un post
   Scenario: Validación POST URL diferente para post con el mismo titulo.
     Given I navigate to page 'http://localhost:2368/ghost/'
     And I wait for 3 seconds
-    When I enter email 'prueba@example.com' and pass 'prueba@example.com123456789'
+    When I enter email "<USER>" and pass "<PASSWORD>"
     And I wait for 5 seconds
     And I click log in
     And I wait for 5 seconds

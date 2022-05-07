@@ -5,7 +5,7 @@ Given('I navigate to page {string}', async function (page) {
     return await this.driver.url(page);
 });
 
-When('I enter email {string} and pass {string}', async function (email, pass) {
+When('I enter email {kraken-string} and pass {kraken-string}', async function (email, pass) {
     let element = await this.driver.$('#ember7');
     await element.setValue(email);
     let passElement = await this.driver.$('#ember9');

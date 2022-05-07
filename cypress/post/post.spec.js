@@ -1,6 +1,8 @@
+const url = Cypress.config('baseUrl');
+
 describe('GHOST', function () {
     it('visits GHOST', function () {
-        cy.visit('http://localhost:2368/ghost/');
+        cy.visit(url);
         cy.wait(1000);
         scenario_one();
         scenario_two();
