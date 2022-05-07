@@ -56,7 +56,7 @@ When('I back to lists post', async function () {
     element.click();
 })
 
-When('I validate the title of post {int}', async function (item) {
+Then('I validate the title of post {int}', async function (item) {
     let elementList = await this.driver.$('/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/div[1]/div[1]/div[1]/span[1]');
     elementList.click();
     await sleep(2000);
@@ -80,7 +80,7 @@ When('I write the title with length {int}', async function (value) {
     await element.setValue(titleRandom(value));
 })
 
-When('I wait message error', async function () {
+Then('I wait message error', async function () {
     let element = await this.driver.$('//article[@class=\'gh-alert gh-alert-red ember-view\']');
     element.click();
 })

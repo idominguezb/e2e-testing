@@ -22,7 +22,7 @@ Feature: Creación de un post
     And I wait for 5 seconds
     And I back to lists post
     And I wait for 5 seconds
-    And I validate the title of post 2
+    Then I validate the title of post 2
     And I wait for 5 seconds
 
   @user2 @web
@@ -47,7 +47,7 @@ Feature: Creación de un post
     And I wait for 5 seconds
     And I back to lists post
     And I wait for 5 seconds
-    And I validate the title of post 3
+    Then I validate the title of post 3
     And I wait for 5 seconds
 
   @user3 @web
@@ -72,7 +72,7 @@ Feature: Creación de un post
     And I wait for 5 seconds
     And I click confirm
     And I wait for 5 seconds
-    And I wait message error
+    Then I wait message error
 
   @user4 @web
   Scenario: Validación POST URL diferente para post con el mismo titulo.
