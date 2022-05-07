@@ -6,7 +6,6 @@ describe('GHOST', function () {
         scenario_two();
         scenario_three();
         scenario_four();
-        scenario_five();
     })
 })
 
@@ -73,8 +72,14 @@ function scenario_one() {
 
     cy.wait(2000);
 
-    let elementText = cy.xpath('/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/ol[1]/li[2]/a[1]/h3[1]');
-    cy.log(elementText);
+    exit();
+
+    // let elementText = cy.xpath('/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/ol[1]/li[2]/a[1]/h3[1]');
+    //
+    // cy.wait(2000);
+
+    // exit();
+    // cy.xpath('/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]').click({force:true});
 }
 
 function scenario_two() {
@@ -144,7 +149,8 @@ function scenario_two() {
     cy.wait(2000);
 
     let elementText = cy.xpath('/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/ol[1]/li[2]/a[1]/h3[1]');
-    cy.log(elementText);
+
+exit();
 }
 
 function scenario_three() {
@@ -199,6 +205,19 @@ function scenario_three() {
     elementButtonConfirm.click({force: true});
 
     cy.wait(1000);
+
+    let elementBackPost = cy.xpath('/html[1]/body[1]/div[2]/div[1]/main[1]/div[1]/section[1]/header[1]/div[1]/div[1]/a[1]/span[1]');
+    elementBackPost.click({force: true});
+
+    cy.wait(2000);
+
+    cy.xpath('//button[@class=\'gh-btn gh-btn-red\']/span[text()=\'Leave\']');
+    elementButtonConfirm.click({force: true});
+
+    cy.wait(3000);
+
+    exit();
+
 }
 
 function scenario_four() {
@@ -233,6 +252,8 @@ function scenario_four() {
 
     search();
 
+    exit();
+
 }
 
 function search() {
@@ -255,4 +276,12 @@ function titleRandom(len) {
         title += 'a'
     }
     return title;
+}
+
+function exit(){
+    cy.xpath('/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()=\'svg\'][1]/*[name()=\'path\'][1]')
+        .click({force:true});
+    cy.xpath('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[9]/a[1]')
+        .click({force:true});
+
 }

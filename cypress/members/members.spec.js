@@ -79,6 +79,16 @@ function scenario_five() {
                 });
             break;
         }
-    })
+    });
+
+    exit();
+
+}
+
+function exit(){
+    cy.xpath('/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()=\'svg\'][1]/*[name()=\'path\'][1]')
+        .click({force:true});
+    cy.xpath('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[9]/a[1]')
+        .click({force:true});
 
 }
