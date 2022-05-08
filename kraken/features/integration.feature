@@ -2,32 +2,32 @@ Feature: Integración
 
 @user16 @web
 Scenario: Crear integración
-    Given I navigate to page "http://localhost:2380/ghost/#/signin"
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     And I wait for 1 seconds
     When I set value for "username" in "[name='identification']" to "<USER>"
     And I set value for "password" in "[name='password']" to "<PASSWORD>"
     And I click "login" in ".js-login-button"
     And I wait for 2 seconds    
-    Given I navigate to page "http://localhost:2380/ghost/#/settings/integrations"
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
     And I wait for 1 seconds    
     And I click "add integration" in ".gh-main-section:last-child > div:last-child a" 
     And I wait for 1 seconds    
     And I set value for "integration name" in "#new-integration-name" to "test"
     And I click "create integration" in ".modal-footer button:last-child" 
     And I wait for 2 seconds    
-    Given I navigate to page "http://localhost:2380/ghost/#/settings/integrations"
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
     And I wait for 2 seconds    
     And I validate "integration name" "test" ".gh-main-section:last-child .apps-grid .apps-grid-cell:last-child .apps-card-app-title"
 
 @user17 @web
 Scenario: Crear webhook
-    Given I navigate to page "http://localhost:2380/ghost/#/signin"
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     And I wait for 1 seconds
     When I set value for "username" in "[name='identification']" to "<USER>"
     And I set value for "password" in "[name='password']" to "<PASSWORD>"
     And I click "login" in ".js-login-button"
     And I wait for 10 seconds    
-    Given I navigate to page "http://localhost:2380/ghost/#/settings/integrations"
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
     And I click "existing integration" in "//html/body/div[2]/div/main/section/section[2]/div[1]/div[1]/a" 
     And I wait for 1 seconds    
     And I click "add webhook" in ".gh-canvas > .gh-main-section:first-of-type a"
@@ -41,30 +41,30 @@ Scenario: Crear webhook
 
 @user18 @web
 Scenario: Editar integración
-    Given I navigate to page "http://localhost:2380/ghost/#/signin"
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     And I wait for 1 seconds
     When I set value for "username" in "[name='identification']" to "<USER>"
     And I set value for "password" in "[name='password']" to "<PASSWORD>"
     And I click "login" in ".js-login-button"
     And I wait for 14 seconds    
-    Given I navigate to page "http://localhost:2380/ghost/#/settings/integrations"
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
     And I click "existing integration" in "//html/body/div[2]/div/main/section/section[2]/div[1]/div[1]/a" 
     And I wait for 3 seconds    
     And I set value for "integration name" in "#integration_name" to "pruebas"
     And I click "save integration" in ".gh-canvas-header-content button"
     And I wait for 3 seconds    
-    Given I navigate to page "http://localhost:2380/ghost/#/settings/integrations"
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
     And I validate "integration name" "pruebas" ".gh-main-section:last-child .apps-grid .apps-grid-cell:first-child .apps-card-app-title"
 
 @user19 @web
 Scenario: Eliminar integración
-    Given I navigate to page "http://localhost:2380/ghost/#/signin"
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
     And I wait for 1 seconds
     When I set value for "username" in "[name='identification']" to "<USER>"
     And I set value for "password" in "[name='password']" to "<PASSWORD>"
     And I click "login" in ".js-login-button"
     And I wait for 25 seconds    
-    Given I navigate to page "http://localhost:2380/ghost/#/settings/integrations"
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
     And I click "existing integration" in "//html/body/div[2]/div/main/section/section[2]/div[1]/div[1]/a" 
     And I wait for 3 seconds    
     And I click "delete integration" in ".gh-main-section:last-child > div:last-child button"
