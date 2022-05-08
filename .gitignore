@@ -1,3 +1,6 @@
 node_modules
 reports
 .kraken
+package-lock.json
+videos
+screenshots

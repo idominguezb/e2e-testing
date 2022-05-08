@@ -1,5 +1,5 @@
-describe('GHOST', function () {
-    it('visits GHOST', function () {
+describe('Members Flow', function () {
+    it('Members', function () {
         cy.visit('http://localhost:2368/ghost/');
         cy.wait(1000);
         scenario_five();

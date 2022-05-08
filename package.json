@@ -1,0 +1,23 @@
+{
+  "name": "e2e-testing",
+  "version": "1.0.0",
+  "description": "| Funcionalidad | Detalle                                                                                                            | Escenarios |\r |---------------|--------------------------------------------------------------------------------------------------------------------|------------|\r | Crear post    | Crear un post manera inmediata o de forma programada para que los miembros puedan ver la información.              | [Escenarios](#Escenarios-para-crear-post)           |\r | Crear página  | Crear una pagina manera inmediata o de forma programada para que los miembros puedan ver la información.           |    [Escenarios](#Escenarios-para-crear-pagina)        |\r | Crear tags    | Crear tags para relacionar los posts con el propósito de informar a los lectores de que se trata la publicación.   | [Escenarios](#Escenarios-para-crear-tag)           |\r | Integraciones | Se requiere adiministrar las integraciones de la pagina                                                            | [Escenarios](#Escenarios-para-intergacion)           |\r | Membresia     | Administrar los miembros que se suscriben al blog                                                                  |      [Escenarios](#Escenarios-para-miembros)      |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/idominguezb/e2e-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/idominguezb/e2e-testing/issues"
+  },
+  "homepage": "https://github.com/idominguezb/e2e-testing#readme",
+  "devDependencies": {
+    "cypress-xpath": "^1.6.2"
+  }
+}

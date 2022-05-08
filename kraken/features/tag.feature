@@ -94,7 +94,3 @@ Feature: Multiple site support
     When I save tag
     And I wait for 5 seconds
     When I click on button "/members/"
-
-
-
-

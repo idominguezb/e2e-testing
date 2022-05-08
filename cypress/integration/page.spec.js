@@ -1,5 +1,5 @@
-describe("GHOST", function () {
-  it("visits GHOST", function () {
+describe("Page Flow", function () {
+  it("Page", function () {
     cy.visit("http://localhost:2368/ghost/");
     cy.wait(1000);
     crear_pagina("Crear pagina");
