@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/idominguezb/e2e-testing#readme",
   "devDependencies": {
+    "cypress": "^9.6.0",
     "cypress-xpath": "^1.6.2"
   }
 }
