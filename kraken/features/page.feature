@@ -1,4 +1,4 @@
-Feature: Iniciar una conversación
+Feature: Crear pagina
 
 @user5 @web
 Scenario: Crear una pagina
@@ -29,7 +29,7 @@ Given I navigate to page "http://localhost:2368/ghost/"
 Scenario: Crear una pagina programada
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 2 seconds
-    When I enter email "<USERNAME1>"
+    When I enter email "<USER>"
     When I enter password "<PASSWORD>"
     When I click on button with id 'ember11'
     And I wait for a signal containing "scenario1 complete" for 3600 seconds
@@ -55,7 +55,7 @@ Scenario: Crear una pagina programada
 Scenario: Crear una pagina usando un draft
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 2 seconds
-    When I enter email "<USERNAME1>"
+    When I enter email "<USER>"
     When I enter password "<PASSWORD>"
     When I click on button with id 'ember11'
     And I wait for a signal containing "scenario2 complete" for 3600 seconds
@@ -85,7 +85,7 @@ Scenario: Crear una pagina usando un draft
 Scenario: Crear pagina con titulo extenso
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 2 seconds
-    When I enter email "<USERNAME1>"
+    When I enter email "<USER>"
     When I enter password "<PASSWORD>"
     When I click on button with id 'ember11'
     And I wait for a signal containing "scenario3 complete" for 3600 seconds
