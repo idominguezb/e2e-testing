@@ -1,16 +1,16 @@
 # e2e-testing 
-
+[yo](#Escenarios-para-intergacion)
 # Funcionalidades probadas 
 | Funcionalidad | Detalle                                                                                                            | Escenarios |
 |---------------|--------------------------------------------------------------------------------------------------------------------|------------|
-| Crear post    | Crear un post manera inmediata o de forma programada para que los miembros puedan ver la información.              | [Escenarios] (# Escenarios de pruebas para crear post)           |
+| Crear post    | Crear un post manera inmediata o de forma programada para que los miembros puedan ver la información.              | [yo](#Escenarios)           |
 | Crear página  | Crear una pagina manera inmediata o de forma programada para que los miembros puedan ver la información.           |            |
 | Crear tags    | Crear tags para relacionar los posts con el propósito de informar a los lectores de que se trata la publicación.   |            |
 | Integraciones | Se requiere adiministrar las integraciones de la pagina                                                            |            |
 | Membresia     | Administrar los miembros que se suscriben al blog                                                                  |            |
 
 # Escenarios
-## Escenarios de pruebas para crear post
+# Escenarios de pruebas para crear post
 | Identificador | Nombre                        | Tipo de escenario |
 |---------------|-------------------------------|-------------------|
 | ECPT1         | Crear post                    | Positivo          |
@@ -34,7 +34,7 @@
 | ECT3          | Crear un internal tag y leer lista de internals tags | MIX               |
 | ECT4          | Crear tag con descripción mayor a 500 caracteres     | Negativo          |
 
-## Escenarios para intergacion
+# Escenarios para intergacion
 | Identificador | Nombre               | Tipo de escenario |
 |---------------|----------------------|-------------------|
 | EIT1          | Crear integracion    | Positivo          |
