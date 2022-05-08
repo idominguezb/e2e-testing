@@ -1,6 +1,6 @@
 Feature: Integración
 
-@user1 @web
+@user16 @web
 Scenario: Crear integración
     Given I navigate to page "http://localhost:2380/ghost/#/signin"
     And I wait for 1 seconds
@@ -19,7 +19,7 @@ Scenario: Crear integración
     And I wait for 2 seconds    
     And I validate "integration name" "test" ".gh-main-section:last-child .apps-grid .apps-grid-cell:last-child .apps-card-app-title"
 
-@user2 @web
+@user17 @web
 Scenario: Crear webhook
     Given I navigate to page "http://localhost:2380/ghost/#/signin"
     And I wait for 1 seconds
@@ -39,7 +39,7 @@ Scenario: Crear webhook
     And I wait for 2 seconds    
     And I validate "webhook created name" "tests" "//html/body/div[2]/div/main/section/section[1]/div/table/tbody/tr[last()]/td"
 
-@user3 @web
+@user18 @web
 Scenario: Editar integración
     Given I navigate to page "http://localhost:2380/ghost/#/signin"
     And I wait for 1 seconds
@@ -56,7 +56,7 @@ Scenario: Editar integración
     Given I navigate to page "http://localhost:2380/ghost/#/settings/integrations"
     And I validate "integration name" "pruebas" ".gh-main-section:last-child .apps-grid .apps-grid-cell:first-child .apps-card-app-title"
 
-@user4 @web
+@user19 @web
 Scenario: Eliminar integración
     Given I navigate to page "http://localhost:2380/ghost/#/signin"
     And I wait for 1 seconds
