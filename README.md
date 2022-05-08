@@ -34,7 +34,7 @@
 | ECT3          | Crear un internal tag y leer lista de internals tags | MIX               |
 | ECT4          | Crear tag con descripción mayor a 500 caracteres     | Negativo          |
 
-# Escenarios para intergacion
+## Escenarios para intergacion
 | Identificador | Nombre               | Tipo de escenario |
 |---------------|----------------------|-------------------|
 | EIT1          | Crear integracion    | Positivo          |
