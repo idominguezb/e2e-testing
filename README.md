@@ -26,7 +26,7 @@
 | ECPG3         | Crear pagina a partir de un draft | Positivo          |
 | ECPG4         | Crear pagina con titulo extenso   | MIX               |
 
-## Escenerios para crear tag
+## Escenarios para crear tag
 | Identificador | Nombre                                               | Tipo de escenario |
 |---------------|------------------------------------------------------|-------------------|
 | ECT1          | Crear tag                                            | Positivo          |
