@@ -62,8 +62,8 @@ function createIntegrationWebhook() {
     cy.get('#webhook-targetUrl').type('https://test.com');
 
     // Create webhook
-    // cy.get('.modal-footer button:last-child').click();
-    // cy.wait(2000);
+    cy.get('.modal-footer button:last-child').click();
+    cy.wait(2000);
 }
 
 function editIntegration() {
