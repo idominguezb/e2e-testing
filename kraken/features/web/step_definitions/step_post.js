@@ -1,10 +1,5 @@
 const {Given, When, Then} = require('@cucumber/cucumber');
 
-Given('I navigate to page {string}', async function (page) {
-    // Write code here that turns the phrase above into concrete actions
-    return await this.driver.url(page);
-});
-
 When('I enter email {kraken-string} and pass {kraken-string}', async function (email, pass) {
     let element = await this.driver.$('#ember7');
     await element.setValue(email);
@@ -25,7 +20,7 @@ When('I new post click', async function () {
     buttonElement.click();
 });
 
-When('I write the title of my post: {string}', async function (title) {
+When('I write the title of my post: {kraken-string}', async function (title) {
     let element = await this.driver.$('//textarea[@placeholder=\'Post title\'][@class=\'gh-editor-title ember-text-area gh-input ember-view\']');
     await element.setValue(title);
 })

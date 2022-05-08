@@ -72,10 +72,6 @@ When('I fill data', async function() {
     await memberEmail.setValue(newEmail)
 });
 
-Given('I navigate to {kraken-string}', async function(home) {
-    return await this.driver.navigateTo(home)
-});
-
 function makeEmail() { 
     var strValues="abcdefg12345"; 
     var strEmail = ""; 
@@ -93,5 +89,3 @@ function makeEmail() {
     strEmail = strEmail + ".com" 
     return strEmail; 
 }
-
-
