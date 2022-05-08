@@ -4,7 +4,7 @@ Feature: Iniciar una conversación
 Scenario: Crear una pagina
 Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 2 seconds
-    When I enter email "<USERNAME1>"
+    When I enter email "<USER>"
     When I enter password "<PASSWORD>"
     When I click on button with id 'ember11'
     When I go to pages section
