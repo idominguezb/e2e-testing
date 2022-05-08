@@ -20,7 +20,7 @@ When('I new post click', async function () {
     buttonElement.click();
 });
 
-When('I write the title of my post: {kraken-string}', async function (title) {
+When('I write the title of my post: {string}', async function (title) {
     let element = await this.driver.$('//textarea[@placeholder=\'Post title\'][@class=\'gh-editor-title ember-text-area gh-input ember-view\']');
     await element.setValue(title);
 })

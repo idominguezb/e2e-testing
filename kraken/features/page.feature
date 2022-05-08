@@ -22,7 +22,7 @@ Given I navigate to page "http://localhost:2368/ghost/"
     When I click on public
     And I wait for 2 seconds
     Then I check the first row with tittle 'New page'
-    Then I send a signal to user 2 containing "scenario1 complete"
+    Then I send a signal to user 6 containing "scenario1 complete"
 
 
 @user6 @web
@@ -49,7 +49,7 @@ Scenario: Crear una pagina programada
     And I wait for 5 seconds
     When I click on all pages 'scheduled'
     Then I check the first row with tittle 'Page scheduled'
-    Then I send a signal to user 3 containing "scenario2 complete"
+    Then I send a signal to user 7 containing "scenario2 complete"
 
 @user7 @web
 Scenario: Crear una pagina usando un draft
@@ -79,7 +79,7 @@ Scenario: Crear una pagina usando un draft
     When I click on paidmember-only
     And I wait for 3 seconds
     Then I check the first row with tittle 'draft page'
-    Then I send a signal to user 4 containing "scenario3 complete"
+    Then I send a signal to user 8 containing "scenario3 complete"
 
 @user8 @web
 Scenario: Crear pagina con titulo extenso

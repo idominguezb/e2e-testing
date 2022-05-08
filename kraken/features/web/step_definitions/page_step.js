@@ -7,7 +7,7 @@ When('I enter password {kraken-string}', async function (password) {
   return await element.setValue(password);
 });
 
-When('I click on button with id {kraken-string}', async function (id) {
+When('I click on button with id {string}', async function (id) {
   let element = await this.driver.$("#" + id);
   return await element.click();
 });
@@ -22,7 +22,7 @@ When('I click on new page',async function(){
     return await newPageButton.click();
     
 });
-When('I type the tittle {kraken-string}', async function (titulo) {
+When('I type the tittle {string}', async function (titulo) {
   let tittle = await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/div[1]/section[1]/div[1]/div[1]/textarea[1]");
   return await tittle.setValue(titulo);
 });
@@ -80,7 +80,7 @@ When("I click on public",async function(){
   await pagesVisibility.click()
 })
 
-When('I click on all pages {kraken-string}',async function (type) {
+When('I click on all pages {string}',async function (type) {
   let index=0;
 
   if(type.includes("published")){
@@ -109,7 +109,7 @@ When('I click on the draft page to publish it', async function(){
  
  return await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/ol[1]/li[2]/a[1]/p[1]").click()
 })
-Then("I check the first row with tittle {kraken-string}",async function(titulo){
+Then("I check the first row with tittle {string}",async function(titulo){
   
   tittle=await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/ol[1]/li[2]/a[1]/h3[1]").getText();
   timePublished=await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/ol[1]/li[2]/a[1]/p[1]/span[1]/span[2]").getText();
