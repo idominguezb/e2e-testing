@@ -50,3 +50,13 @@
 | EMB3          | Crear miembro con descripcion con mas de 500 caracteres | Positivo          |
 | EMB4          | Borrar miembro                                          | Positivo          |
 
+# Ejecutar las pruebas
+
+## Cypress 
+1. Ejecute el comando `npm install` en la raiz del repositorio
+2. Ejecute el comando `cypress run` en la raiz del repositorio
+
+## Kraken
+1. Ingrese a la carpeta kraken desde la terminal 
+2. Ejecute el comando `npm install`
+3. Ejecute el comando `npx kraken-node run`
