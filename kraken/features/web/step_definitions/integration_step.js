@@ -1,4 +1,5 @@
 const { Given, When, Then } = require('@cucumber/cucumber');
+const assert = require('assert');
 
 When('I set value for {kraken-string} in {kraken-string} to {kraken-string}', async function (name, path, value) {
     let element = await this.driver.$(path);
@@ -19,6 +20,6 @@ When(
             elementText,
             value === elementText ? 'Exitoso' : 'Fallido'
         );
-        return value === elementText;
+        return assert.equal(value === elementText, true);
     }
 );
