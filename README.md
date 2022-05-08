@@ -1,13 +1,13 @@
 # e2e-testing 
-[yo](#Escenarios-para-intergacion)
+
 # Funcionalidades probadas 
 | Funcionalidad | Detalle                                                                                                            | Escenarios |
 |---------------|--------------------------------------------------------------------------------------------------------------------|------------|
-| Crear post    | Crear un post manera inmediata o de forma programada para que los miembros puedan ver la información.              | [yo](#Escenarios)           |
-| Crear página  | Crear una pagina manera inmediata o de forma programada para que los miembros puedan ver la información.           |            |
-| Crear tags    | Crear tags para relacionar los posts con el propósito de informar a los lectores de que se trata la publicación.   |            |
-| Integraciones | Se requiere adiministrar las integraciones de la pagina                                                            |            |
-| Membresia     | Administrar los miembros que se suscriben al blog                                                                  |            |
+| Crear post    | Crear un post manera inmediata o de forma programada para que los miembros puedan ver la información.              | [Escenarios](#Escenarios-de-prueba-para-crear-post)           |
+| Crear página  | Crear una pagina manera inmediata o de forma programada para que los miembros puedan ver la información.           |    [Escenarios](#Escenarios-de-prueba-para-crear-pagina)        |
+| Crear tags    | Crear tags para relacionar los posts con el propósito de informar a los lectores de que se trata la publicación.   | [Escenarios](#Escenarios-de-prueba-para-crear-tag)           |
+| Integraciones | Se requiere adiministrar las integraciones de la pagina                                                            | [Escenarios](#Escenarios-de-prueba-para-integraciones)           |
+| Membresia     | Administrar los miembros que se suscriben al blog                                                                  |      [Escenarios](#Escenarios-de-prueba-para-membresia)      |
 
 # Escenarios
 # Escenarios de pruebas para crear post
