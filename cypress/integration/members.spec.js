@@ -11,15 +11,39 @@ describe("Members Flow", function () {
     cy.wait(1000);
   });
 });
-
 function login() {
-  cy.get("#ember7").type("prueba@example.com", { force: true });
-  cy.get("#ember9").type("prueba@example.com123456789", { force: true });
-  cy.wait(1000);
-
-  cy.get("#ember11").click({ force: true });
-  cy.wait(5000);
+    cy.get("#ember7").type("prueba@example.com", { force: true });
+    cy.get("#ember9").type("prueba@example.com123456789", { force: true });
+    cy.wait(1000);
+  
+    cy.get("#ember11").click({ force: true });
+    cy.wait(5000);
+  }
+function createMember(){
+    cy.visit("http://localhost:2368/ghost/#/members/new");
+    cy.wait(2000)
+    cy.xpath(
+        "/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[2]/form[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"
+      ).type("Hector Urrego", { force: true });
+    
+      cy.wait(1000);
+    
+      // Field email
+      cy.xpath(
+        "/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[2]/form[1]/div[1]/section[1]/div[1]/div[1]/div[1]/div[1]/div[2]/input[1]"
+      ).type(faker.internet.email(), { force: true });
+    
+      cy.wait(1000);
+    
+      // Click button save
+      cy.xpath(
+        "/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/button[1]/span[1]"
+      ).click({ force: true });
+      
+      cy.wait(1000);  
+      cy.visit("http://localhost:2368/ghost/");
 }
+
 function createMemberWithInvalidEmail() {
   cy.visit("http://localhost:2368/ghost/#/members/new");
  

@@ -8,8 +8,7 @@ describe('Posts flow', function () {
         scenario_four();
     });
 });
-
-function scenario_one() {
+function login(){
     let elementUsername = cy.get('#ember7');
     elementUsername.type('prueba@example.com', { force: true });
 
@@ -22,6 +21,10 @@ function scenario_one() {
     elementLogin.click({ force: true });
 
     cy.wait(5000);
+
+}
+function scenario_one() {
+    login()
 
     let elementPost = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[1]/ul[2]/li[1]/a[1]'
@@ -104,19 +107,7 @@ function scenario_one() {
 }
 
 function scenario_two() {
-    let elementUsername = cy.get('#ember7');
-    elementUsername.type('prueba@example.com', { force: true });
-
-    let elementcyPass = cy.get('#ember9');
-    elementcyPass.type('prueba@example.com123456789', { force: true });
-
-    cy.wait(1000);
-
-    let elementLogin = cy.get('#ember11');
-    elementLogin.click({ force: true });
-
-    cy.wait(5000);
-
+    login()
     let elementPost = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[1]/ul[2]/li[1]/a[1]'
     );
@@ -202,19 +193,7 @@ function scenario_two() {
 }
 
 function scenario_three() {
-    let elementUsername = cy.get('#ember7');
-    elementUsername.type('prueba@example.com', { force: true });
-
-    let elementcyPass = cy.get('#ember9');
-    elementcyPass.type('prueba@example.com123456789', { force: true });
-
-    cy.wait(1000);
-
-    let elementLogin = cy.get('#ember11');
-    elementLogin.click({ force: true });
-
-    cy.wait(5000);
-
+    login()
     let elementPost = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[1]/ul[2]/li[1]/a[1]'
     );
@@ -289,19 +268,7 @@ function scenario_three() {
 }
 
 function scenario_four() {
-    let elementUsername = cy.get('#ember7');
-    elementUsername.type('prueba@example.com', { force: true });
-
-    let elementcyPass = cy.get('#ember9');
-    elementcyPass.type('prueba@example.com123456789', { force: true });
-
-    cy.wait(1000);
-
-    let elementLogin = cy.get('#ember11');
-    elementLogin.click({ force: true });
-
-    cy.wait(5000);
-
+ login()
     let elementPost = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[1]/ul[2]/li[1]/a[1]'
     );
