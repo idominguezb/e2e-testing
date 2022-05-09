@@ -76,21 +76,5 @@ Feature: Multiple site support
     When I navigate to "http://localhost:2368/ghost/#/tags"
     And I wait for 5 seconds
     Then I found new tag created "InternalTagMISO"
-    Then I send a signal to user 15 containing "scenario4 complete"
+    
 
-  @user15 @web
-  Scenario: Create member
-    Given I navigate to "http://localhost:2368/ghost"
-  
-    When I enter email "<USER>" for tag
-    And I wait for 5 seconds
-    When I enter password "<PASSWORD>" for tag
-    And I wait for 5 seconds
-    When I click next for tag
-    And I wait for 5 seconds
-    When I click on button "/members/"
-    When I click on button "/members/new/"
-    When I fill data
-    When I save tag
-    And I wait for 5 seconds
-    When I click on button "/members/"
