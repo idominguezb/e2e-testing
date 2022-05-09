@@ -59,4 +59,4 @@ Antes de ejecutar las pruebas se recomienda tener un usuario con email: prueba@e
 ## Kraken
 1. Ingrese a la carpeta kraken desde la terminal 
 2. Ejecute el comando `npm install`
-3. Ejecute el comando `npx kraken-node run`
+3. Ejecute el comando `npx kraken-node run` 
