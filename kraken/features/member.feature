@@ -32,3 +32,44 @@ Scenario: Crear una miembro con descripción mayor a 500 caracteres
     And I click "save member" in ".view-actions button"
     And I wait for 2 seconds
     Then I should see an retry message
+
+@user18 @web
+  Scenario: Create Internal Tag
+    Given I navigate to "http://localhost:2368/ghost"
+   
+    When I enter email "<USER>" for tag
+    And I wait for 5 seconds
+    When I enter password "<PASSWORD>" for tag
+    And I wait for 5 seconds
+    When I click next for tag
+    And I wait for 5 seconds
+    When I click on button "/members/"
+    When I click on button "/members/new/"
+    When I fill data "crear"
+    When I save tag 
+    And I wait for 5 seconds
+    When I click on button "/members/"
+    Then I send a signal to user 19 containing "create member complete" 
+    Then I check that the first name is 'crear'
+    
+   @user19 @web
+   Scenario: Delete member
+    Given I navigate to "http://localhost:2368/ghost"
+    When I enter email "<USER>" for tag
+    And I wait for 5 seconds
+    When I enter password "<PASSWORD>" for tag
+    And I wait for 5 seconds
+    When I click next for tag
+    And I wait for a signal containing "create member complete" for 50 seconds
+    And I wait for 5 seconds
+    When I click on button "/members/"
+    When I click on button "/members/new/"
+    When I fill data "eliminar"
+    When I save tag
+    And I wait for 5 seconds
+    When I click on button "/members/"
+    And I wait for 5 seconds
+    When I click on the new member
+    When I delete the member 
+    And I wait for 5 seconds
+    Then I check that the first name is not 'eliminar'

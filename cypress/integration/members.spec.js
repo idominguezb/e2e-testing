@@ -94,18 +94,19 @@ function scenario_five() {
             cy.xpath(
               "/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/span[1]/ul[1]/li[2]/button[1]/span[1]"
             ).click({ force: true });
-            cy.wait(1000);
+            
 
             cy.xpath(
               "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[2]/button[2]/span[1]"
             ).click({ force: true });
+            cy.wait(5000);
           }
         });
       break;
     }
   });
 
-  exit();
+
 }
 
 function createMemberWithMoreThan500CharInDescription() {
@@ -129,11 +130,3 @@ function createMemberWithMoreThan500CharInDescription() {
   cy.visit("http://localhost:2368/ghost/");
 }
 
-function exit() {
-  cy.xpath(
-    "/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/*[name()='svg'][1]/*[name()='path'][1]"
-  ).click({ force: true });
-  cy.xpath("/html[1]/body[1]/div[1]/div[1]/ul[1]/li[9]/a[1]").click({
-    force: true,
-  });
-}

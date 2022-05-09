@@ -79,9 +79,9 @@ Feature: Multiple site support
     Then I send a signal to user 15 containing "scenario4 complete"
 
   @user15 @web
-  Scenario: Create Internal Tag
+  Scenario: Create member
     Given I navigate to "http://localhost:2368/ghost"
-    And I wait for a signal containing "scenario4 complete" for 3600 seconds
+  
     When I enter email "<USER>" for tag
     And I wait for 5 seconds
     When I enter password "<PASSWORD>" for tag

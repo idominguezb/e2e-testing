@@ -40,3 +40,61 @@ Then('I should see an retry message', async function () {
     let errorLabel = await this.driver.$('.view-actions button span').getText();
     return assert.equal('Retry', errorLabel);
 });
+
+When('I click on the new member',async function(){
+  let member=await this.driver.$('/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/div[1]/table[1]/tbody[1]/tr[1]/a[1]/div[1]/div[1]/h3[1]')
+  return await member.click()
+})
+
+When('I delete the member',async function(){
+  
+  await this.driver.$(
+    "/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/span[1]/button[1]/span[1]/*[name()='svg'][1]"
+  ).click();
+  
+
+ await this.driver.$(
+    "/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/span[1]/ul[1]/li[2]/button[1]/span[1]"
+  ).click();
+  
+
+  await this.driver.$(
+    "/html[1]/body[1]/div[5]/div[1]/div[1]/div[1]/div[1]/div[2]/section[1]/div[2]/button[2]/span[1]"
+  ).click();
+ 
+})
+
+When('I fill data {kraken-string}', async function(nombre) {
+  const memberName = await this.driver.$('//*[@id="member-name"]')
+  const memberEmail = await this.driver.$('//*[@id="member-email"]')
+  await memberName.setValue(nombre);
+  const newEmail = makeEmail();
+  await memberEmail.setValue(newEmail)
+});
+
+Then('I check that the first name is {string}',async function(nombre){
+  let name= await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/div[1]/table[1]/tbody[1]/tr[1]/a[1]/div[1]/div[1]/h3[1]").getText()
+  console.log(name)
+  assert.equal(name===nombre,true)
+})
+Then('I check that the first name is not {string}',async function(nombre){
+  let name=await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/div[1]/table[1]/tbody[1]/tr[1]/a[1]/div[1]/div[1]/h3[1]").getText()
+  assert.equal(name==nombre,false)
+})
+function makeEmail() { 
+  var strValues="abcdefg12345"; 
+  var strEmail = ""; 
+  var strTmp; 
+  for (var i=0;i<10;i++) { 
+  strTmp = strValues.charAt(Math.round(strValues.length*Math.random())); 
+  strEmail = strEmail + strTmp; 
+  } 
+  strTmp = ""; 
+  strEmail = strEmail + "@"; 
+  for (var j=0;j<8;j++) { 
+  strTmp = strValues.charAt(Math.round(strValues.length*Math.random())); 
+  strEmail = strEmail + strTmp; 
+  } 
+  strEmail = strEmail + ".com" 
+  return strEmail; 
+}
