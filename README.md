@@ -1,5 +1,5 @@
 # e2e-testing 
-[Como ejecutar](Ejecutar-las-pruebas)
+[Como ejecutar](#Ejecutar-las-pruebas)
 # Funcionalidades probadas 
 | Funcionalidad | Detalle                                                                                                            | Escenarios |
 |---------------|--------------------------------------------------------------------------------------------------------------------|------------|
