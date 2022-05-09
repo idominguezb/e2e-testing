@@ -325,7 +325,7 @@ function scenario_four() {
 
     search();
 
-    exit();
+  
 }
 
 function search() {
