@@ -1,8 +1,10 @@
+const { faker } = require('@faker-js/faker');
+
 describe('Integration Flow', () => {
     it('Integration', () => {
         cy.visit('http://localhost:2368/ghost/');
         login();
-        createIntegration("test");
+        createIntegration('test');
         createIntegrationWebhook();
         editIntegration();
         deleteIntegration();
@@ -51,7 +53,7 @@ function createIntegrationWebhook() {
     cy.get('.gh-canvas > .gh-main-section:first-of-type a').click();
     cy.wait(1000);
 
-    // Set webhook settings 
+    // Set webhook settings
     cy.get('#webhook-name').type('tests');
     cy.wait(1000);
     cy.get('#webhook-event')
@@ -59,7 +61,7 @@ function createIntegrationWebhook() {
         .should('have.value', 'post.published');
 
     cy.wait(1000);
-    cy.get('#webhook-targetUrl').type('https://test.com');
+    cy.get('#webhook-targetUrl').type(faker.internet.email());
 
     // Create webhook
     cy.get('.modal-footer button:last-child').click();
@@ -76,7 +78,7 @@ function editIntegration() {
     cy.wait(2000);
 
     // Save Integration
-    cy.get('.gh-canvas-header-content button').click(); 
+    cy.get('.gh-canvas-header-content button').click();
     cy.wait(2000);
 }
 
@@ -88,10 +90,10 @@ function deleteIntegration() {
     cy.wait(1000);
 
     // Delete Integration
-    cy.get('.gh-main-section:last-child > div:last-child button').click(); 
+    cy.get('.gh-main-section:last-child > div:last-child button').click();
     cy.wait(1000);
 
     // Confirm delete integration
-    cy.get('.modal-footer button:last-child').click(); 
+    cy.get('.modal-footer button:last-child').click();
     cy.wait(5000);
 }
