@@ -22,7 +22,7 @@ Given I navigate to page "http://localhost:2368/ghost/"
     When I click on public
     And I wait for 2 seconds
     Then I check the first row with tittle 'New page'
-    Then I send a signal to user 6 containing "scenario1 complete"
+
 
 
 @user6 @web
@@ -32,7 +32,7 @@ Scenario: Crear una pagina programada
     When I enter email "<USER>"
     When I enter password "<PASSWORD>"
     When I click on button with id 'ember11'
-    And I wait for a signal containing "scenario1 complete" for 3600 seconds
+
     When I go to pages section
     And I wait for 5 seconds
     When I click on new page
@@ -49,7 +49,7 @@ Scenario: Crear una pagina programada
     And I wait for 5 seconds
     When I click on all pages 'scheduled'
     Then I check the first row with tittle 'Page scheduled'
-    Then I send a signal to user 7 containing "scenario2 complete"
+
 
 @user7 @web
 Scenario: Crear una pagina usando un draft
@@ -58,7 +58,7 @@ Scenario: Crear una pagina usando un draft
     When I enter email "<USER>"
     When I enter password "<PASSWORD>"
     When I click on button with id 'ember11'
-    And I wait for a signal containing "scenario2 complete" for 3600 seconds
+ 
     When I go to pages section
     And I wait for 5 seconds
     When I click on new page
@@ -79,7 +79,7 @@ Scenario: Crear una pagina usando un draft
     When I click on paidmember-only
     And I wait for 3 seconds
     Then I check the first row with tittle 'draft page'
-    Then I send a signal to user 8 containing "scenario3 complete"
+   
 
 @user8 @web
 Scenario: Crear pagina con titulo extenso
@@ -88,7 +88,7 @@ Scenario: Crear pagina con titulo extenso
     When I enter email "<USER>"
     When I enter password "<PASSWORD>"
     When I click on button with id 'ember11'
-    And I wait for a signal containing "scenario3 complete" for 3600 seconds
+
     When I go to pages section
     And I wait for 6 seconds
     When I click on new page
