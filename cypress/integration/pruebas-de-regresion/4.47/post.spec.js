@@ -9,7 +9,7 @@ describe('Posts flow', function () {
         cy.visit('http://localhost:2368/ghost/');
         cy.wait(1000);
         scenario_one('/scenario_createPost');
-        scenario_two('/scenario_createPostProgramer');
+        scenario_two('/scenario_createPostProgrammed');
         scenario_three('/scenario_lengthMaxPost');
         scenario_four('/scenario_urlPost');
     });

@@ -1,9 +1,9 @@
 describe('Posts flow', function () {
-    beforeEach(() => {
-        // run these tests as if in a desktop
-        // browser with a 720p monitor
-        cy.viewport(1280, 800)
-    })
+    // beforeEach(() => {
+    //     // run these tests as if in a desktop
+    //     // browser with a 720p monitor
+    //     cy.viewport(1280, 800)
+    // })
     it('Post', function () {
         cy.visit('http://localhost:3001/ghost/');
         cy.wait(1000);
@@ -37,7 +37,7 @@ function post(directory) {
     );
     elementPost.click({force: true});
     cy.wait(1000);
-    cy.screenshot(directory + '/step3')
+    cy.screenshot(directory + '/step3', {overwrite: true, capture: 'fullPage'})
 
     let buttonElement = cy.xpath(
         "/html[1]/body[1]/div[2]/div[1]/nav[1]/section[1]/div[1]/ul[2]/li[2]/a[2]/span[1]/*[name()='svg'][1]"
@@ -45,7 +45,7 @@ function post(directory) {
     buttonElement.click({force: true});
 
     cy.wait(1000);
-    cy.screenshot(directory + '/step4')
+    cy.screenshot(directory + '/step4', {overwrite: true, capture: 'fullPage'})
 }
 
 function writerPost(directory, title, parraf) {
@@ -66,7 +66,7 @@ function writerPost(directory, title, parraf) {
     );
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step5')
+    cy.screenshot(directory + '/step5', {overwrite: true, capture: 'fullPage'})
 }
 
 // Creación de un post
@@ -83,7 +83,7 @@ function scenario_one(directory) {
     elementMenu.click({force: true});
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step6')
+    cy.screenshot(directory + '/step6', {overwrite: true, capture: 'fullPage'})
 
     let elementButtonPublish = cy.xpath(
         '/html[1]/body[1]/div[1]/div[1]/footer[1]/button[2]/span[1]'
@@ -91,15 +91,15 @@ function scenario_one(directory) {
     elementButtonPublish.click({force: true});
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step7')
+    cy.screenshot(directory + '/step7', {overwrite: true, capture: 'fullPage'})
 
     // let elementButtonConfirm = cy.xpath(
     //     "//button[@class='gh-btn gh-btn-black gh-btn-icon ember-view']"
     // );
     // elementButtonConfirm.click({force: true});
     //
-    // cy.wait(2000);
-    // cy.screenshot(directory + '/step8')
+    cy.wait(2000);
+    cy.screenshot(directory + '/step8')
 
     let elementBackPost = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/header[1]/div[1]/div[1]/a[1]'
@@ -107,7 +107,7 @@ function scenario_one(directory) {
     elementBackPost.click({force: true});
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step8')
+    cy.screenshot(directory + '/step9', {overwrite: true, capture: 'fullPage'})
 
     let elementList = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/header[1]/section[1]/div[1]/div[1]/div[1]/span[1]'
@@ -115,13 +115,13 @@ function scenario_one(directory) {
     elementList.click({force: true});
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step9')
+    cy.screenshot(directory + '/step10', {overwrite: true, capture: 'fullPage'})
 
     let elementPublish = cy.xpath('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[3]');
     elementPublish.click({force: true});
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step10')
+    cy.screenshot(directory + '/step11', {overwrite: true, capture: 'fullPage'})
 
     cy.wait(1000);
     exit();
@@ -141,7 +141,7 @@ function scenario_two(directory) {
     elementMenu.click({force: true});
 
     cy.wait(1000);
-    cy.screenshot(directory + '/step6')
+    cy.screenshot(directory + '/step6', {overwrite: true, capture: 'fullPage'})
 
     let elementChangeCheck = cy.xpath(
         '/html[1]/body[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]'
@@ -149,7 +149,7 @@ function scenario_two(directory) {
     elementChangeCheck.click({force: true});
 
     cy.wait(1000);
-    cy.screenshot(directory + '/step7')
+    cy.screenshot(directory + '/step7', {overwrite: true, capture: 'fullPage'})
 
     let elementButtonPublish = cy.xpath(
         '/html[1]/body[1]/div[1]/div[1]/footer[1]/button[2]/span[1]'
@@ -157,7 +157,7 @@ function scenario_two(directory) {
     elementButtonPublish.click({force: true});
 
     cy.wait(1000);
-    cy.screenshot(directory + '/step8')
+    cy.screenshot(directory + '/step8', {overwrite: true, capture: 'fullPage'})
 
     let elementButtonConfirm = cy.xpath(
         "/html[1]/body[1]/div[1]/div[1]/footer[1]/button[1]/span[1]"
@@ -165,7 +165,7 @@ function scenario_two(directory) {
     elementButtonConfirm.click({force: true});
 
     cy.wait(1000);
-    cy.screenshot(directory + '/step9')
+    cy.screenshot(directory + '/step9', {overwrite: true, capture: 'fullPage'})
 
     let elementBackPost = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/header[1]/div[1]/div[1]/a[1]'
@@ -173,7 +173,7 @@ function scenario_two(directory) {
     elementBackPost.click({force: true});
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step10')
+    cy.screenshot(directory + '/step10', {overwrite: true, capture: 'fullPage'})
 
     let elementList = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/header[1]/section[1]/div[1]/div[1]/div[1]/span[1]'
@@ -181,18 +181,17 @@ function scenario_two(directory) {
     elementList.click({force: true});
 
     cy.wait(1000);
-    cy.screenshot(directory + '/step11')
+    cy.screenshot(directory + '/step11', {overwrite: true, capture: 'fullPage'})
 
     let elementPublish = cy.xpath('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[4]');
     elementPublish.click({force: true});
 
     cy.wait(2000);
-    cy.screenshot(directory + '/step12')
+    cy.screenshot(directory + '/step12', {overwrite: true, capture: 'fullPage'})
 
     exit();
 
 }
-
 
 function exit() {
     Cypress.on('uncaught:exception', (err, runnable) => {
