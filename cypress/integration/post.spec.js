@@ -8,21 +8,16 @@ describe('Posts flow', function () {
         scenario_four();
     });
 });
-function login(){
-    let elementUsername = cy.get('#ember7');
-    elementUsername.type('prueba@example.com', { force: true });
-
-    let elementcyPass = cy.get('#ember9');
-    elementcyPass.type('prueba@example.com123456789', { force: true });
-
+function login() {
+    cy.get('#ember8').type('prueba@example.com', { force: true });
+    cy.get('#ember10').type('prueba@example.com123456789', { force: true });
     cy.wait(1000);
 
-    let elementLogin = cy.get('#ember11');
-    elementLogin.click({ force: true });
-
+    cy.get('#ember12').click({ force: true });
     cy.wait(5000);
-
+    cy.screenshot()
 }
+
 function scenario_one() {
     login()
 
