@@ -2,7 +2,7 @@ const { Given, When, Then, Before } = require("@cucumber/cucumber");
 var fs = require("fs");
 
 Before(function (scenario) {
-  let escenario = scenario.pickle.name.replace(/\s/g, "");
+  let escenario = scenario.pickle.name.replace(/\s/g, "_");
   
     this.version = scenario.gherkinDocument.feature.name.includes("3.42")
     ? "3.42"
