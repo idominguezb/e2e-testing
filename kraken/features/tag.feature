@@ -21,7 +21,7 @@ Feature: Multiple site support
     When I navigate to "http://localhost:2368/ghost/#/tags"
     And I wait for 5 seconds
     Then I found new tag created "MISO1"
-    Then I send a signal to user 12 containing "scenario1 complete"
+    Then I take a screenshot
 
   @user12 @web
   Scenario: Create tag invalido

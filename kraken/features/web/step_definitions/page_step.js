@@ -1,8 +1,9 @@
-const { Given, When, Then } = require("@cucumber/cucumber");
+const { Given, When, Then} = require("@cucumber/cucumber");
 const assert = require('assert');
 
-
 When('I enter password {kraken-string}', async function (password) {
+
+  
   let element = await this.driver.$("#ember9");
   return await element.setValue(password);
 });
@@ -38,7 +39,10 @@ When('I change visibility and publish it', async function(){
 
   await visibility.selectByIndex(2)
   let publishButton = await this.driver.$("//span[normalize-space()='Publish']");
+  
   await publishButton.click()
+  await this.driver.saveScreenshot(this.url+"/"+this.step.toString()+".png")
+  this.step+=1
   let confirmButton = await this.driver.$("/html[1]/body[1]/div[1]/div[1]/footer[1]/button[2]/span[1]");
   return await confirmButton.click()
   
@@ -74,8 +78,10 @@ When("I click on paidmember-only",async function(){
 })
 When("I click on public",async function(){
   let pagesListFilter=await this.driver.$("/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/div[1]/div[2]/div[1]")
+
   await pagesListFilter.click()
-  let pagesVisibility=await this.driver.$("/html[1]/body[1]/div[1]/div[1]/ul[1]/li[1]")
+  
+  let pagesVisibility=await this.driver.$("/html[1]/body[1]/div[1]/div[1]/ul[1]/li[2]")
   
   await pagesVisibility.click()
 })
@@ -98,6 +104,9 @@ When('I click on all pages {string}',async function (type) {
 
   let pagesListFilter=await this.driver.$("//span[@class=\'ember-power-select-selected-item\']")
   await pagesListFilter.click();
+
+  await this.driver.saveScreenshot(this.url+"/"+this.step.toString()+".png")
+  this.step+=1
   let pagePublished= await this.driver.$("//li[@class=\'ember-power-select-option\'][@data-option-index=\'"+index+"\']")
 
   
