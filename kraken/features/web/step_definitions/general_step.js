@@ -3,24 +3,28 @@ var fs = require("fs");
 
 Before(function (scenario) {
   let escenario = scenario.pickle.name.replace(/\s/g, "");
-  console.log(scenario);
-  let version = scenario.gherkinDocument.feature.name.includes("4.47")
-    ? "4.47"
-    : "3.42";
-  this.url = "./results/" + version + "/" + escenario;
+  
+    this.version = scenario.gherkinDocument.feature.name.includes("3.42")
+    ? "3.42"
+    : "4.47";
+  this.url = "./results/" + this.version + "/" + escenario;
   if (!fs.existsSync(this.url)) {
     fs.mkdirSync(this.url, { recursive: true });
   }
   this.step = 1;
+
 });
 Given("I navigate to {kraken-string}", async function (home) {
+    await this.driver.setWindowSize(1920, 1080)
   return await this.driver.navigateTo(home);
 });
 
 
 
 When("I enter email {kraken-string}", async function (email) {
-  let element = await this.driver.$("#ember7");
+ let id=this.version==="3.42"?"#ember8":"#ember7"
+ 
+  let element = await this.driver.$(id);
   return await element.setValue(email);
 });
 
