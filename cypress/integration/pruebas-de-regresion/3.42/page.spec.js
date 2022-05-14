@@ -4,7 +4,7 @@ describe("Page Flow", function () {
       cy.viewport(1920, 1080)
       cy.wait(1000);
      
-      crear_pagina("Crear pagina");
+      crear_pagina("New page");
      
     });
   });
