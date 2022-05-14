@@ -17,11 +17,7 @@ Given("I navigate to {kraken-string}", async function (home) {
   return await this.driver.navigateTo(home);
 });
 
-Before(function (scenario) {
-  this.escenario = scenario.pickle.name.replace(/\s/g, "");
 
-  this.step = 1;
-});
 
 When("I enter email {kraken-string}", async function (email) {
   let element = await this.driver.$("#ember7");
