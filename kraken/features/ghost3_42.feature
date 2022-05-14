@@ -54,6 +54,30 @@ Feature: Ghost 3.42
     Then I validate the title of post 2
     And I wait for 5 seconds
 
+  @user3 @web
+  Scenario: Creación exitosa de un Tag
+    Given I navigate to "http://localhost:2368/ghost"
+    And I wait for 5 seconds
+    And I click view with selector "#ember8"
+    When I enter text "<USER>"
+    And I wait for 5 seconds
+    And I click view with selector "#ember10"
+    When I enter password "<PASSWORD>"
+    And I wait for 5 seconds
+    And I click view with selector "#ember12"
+    And I wait for 5 seconds
+    When I navigate to "http://localhost:2368/ghost/#/tags"
+    And I wait for 5 seconds
+    When I click on new tag
+    And I wait for 5 seconds
+    When I enter tag name "MISO1"
+    When I save tag
+    When I navigate to "http://localhost:2368/ghost/#/tags"
+    And I wait for 5 seconds
+    Then I found new tag created "MISO1"
+    Then I take a screenshot
+
+
  
 
 

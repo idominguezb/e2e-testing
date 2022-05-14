@@ -1,6 +1,6 @@
 describe('Tag Flow', () => {
   it('Tags', () => {
-    cy.visit('http://localhost:2369/ghost/')
+    cy.visit('http://localhost:2368/ghost/')
     login();
     createNewTag()
     createNewTagInvalidColor()
