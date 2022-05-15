@@ -15,7 +15,7 @@ Before(function (scenario) {
 
 });
 Given("I navigate to {kraken-string}", async function (home) {
-    await this.driver.setWindowSize(1920, 924)
+    await this.driver.setWindowSize(1280, 720)
   return await this.driver.navigateTo(home);
 });
 

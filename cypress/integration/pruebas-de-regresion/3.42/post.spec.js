@@ -19,14 +19,14 @@ function login(directoryScreenshot) {
     let elementcyPass = cy.get('#ember10');
     elementcyPass.type('prueba@example.com123456789', {force: true});
 
-    cy.screenshot(directoryScreenshot + '/step1')
+    cy.screenshot(directoryScreenshot + '/step1', {overwrite: true, capture: 'fullPage'})
     cy.wait(2000);
 
     let elementLogin = cy.get('#ember12');
     elementLogin.click({force: true});
 
     cy.wait(5000);
-    cy.screenshot(directoryScreenshot + '/step2')
+    cy.screenshot(directoryScreenshot + '/step2', {overwrite: true, capture: 'fullPage'})
     cy.wait(1000);
 
 }
@@ -99,7 +99,7 @@ function scenario_one(directory) {
     // elementButtonConfirm.click({force: true});
     //
     cy.wait(2000);
-    cy.screenshot(directory + '/step8')
+    cy.screenshot(directory + '/step8', {overwrite: true, capture: 'fullPage'})
 
     let elementBackPost = cy.xpath(
         '/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/header[1]/div[1]/div[1]/a[1]'
