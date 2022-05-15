@@ -1,21 +1,24 @@
 {
-  "url":"https://monitor177.github.io/color-palette/",
-  "scenarios":["post.spec.js/scenario_createPost", "post.spec.js/scenario_createPostProgrammed"],
+  "urlActual":"https://localhost:2368/ghost",
+  "urlAnterior":"https://localhost:3001/ghost",
+  "scenarios":["Create Page"],
+  "scenarios_route_cypress":["page.spec.js/scenario_createPage","tag.spec.js/scenario_createTag","integration.spec.js/createIntegration","post.spec.js/createPost","post.spec.js/createPostProgrammed"],
+  "scenarios_route_kraken":["Create_page","Creacion_exitosa_de_un_tag"],
   "options":{
-    "output": {
-      "errorColor": {
-        "red": 255,
-        "green": 0,
-        "blue": 255
+      "output": {
+          "errorColor": {
+              "red": 255,
+              "green": 0,
+              "blue": 255
+          },
+          "errorType": "movement",
+          "largeImageThreshold": 1200,
+          "useCrossOrigin": false,
+          "outputDiff": true
       },
-      "errorType": "movement",
-      "largeImageThreshold": 1200,
-      "useCrossOrigin": false,
-      "outputDiff": true
-    },
-    "scaleToSameSize": true,
-    "ignore": "antialiasing"
+      "scaleToSameSize": true,
+      "ignore": "antialiasing"
   },
-  "viewportHeight":600,
+  "viewportHeight":600, 
   "viewportWidth":800
 }

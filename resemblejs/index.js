@@ -1,101 +1,152 @@
-import compareImages from "resemblejs/compareImages.js"
+const playwright = require("playwright");
+const compareImages = require("resemblejs/compareImages");
+const config = require("./config.json");
+const fs = require("fs");
 
-const config = "./config.json";
-import fs from "fs";
-
-const {viewportHeight, viewportWidth, browsers, options} = config;
-
-let scenarios = ["post.spec.js/scenario_createPost", "post.spec.js/scenario_createPostProgrammed"];
+const { scenarios_route_cypress,scenarios_route_kraken, scenarios, options } = config;
 
 async function executeTest() {
-    let resultInfo = {}
-    let datetime = new Date().toISOString().replace(/:/g, ".");
-    const {viewportHeight, viewportWidth, browsers, options} = config;
-
-    for (let scenario of scenarios) {
-        const fileCountVerCurrent = fs.readdirSync(`./cypress/screenshots/pruebas-de-regresion/4.47/${scenario}/`).length
-        const fileCountVerOld = fs.readdirSync(`./cypress/screenshots/pruebas-de-regresion/3.42/${scenario}/`).length
-        if (fileCountVerCurrent === fileCountVerOld) {
-            for (let i = 1; i <= fileCountVerCurrent; i++) {
-                const data = await compareImages(
-                    fs.readFileSync(`./cypress/screenshots/pruebas-de-regresion/4.47/${scenario}/step${i}.png`),
-                    fs.readFileSync(`./cypress/screenshots/pruebas-de-regresion/3.42/${scenario}/step${i}.png`),
-                    options
-                );
-                resultInfo['scenario_createPost'] = {
-                    isSameDimensions: true,
-                    dimensionDifference: data.dimensionDifference,
-                    rawMisMatchPercentage: data.rawMisMatchPercentage,
-                    misMatchPercentage: 100,
-                    diffBounds: data.diffBounds,
-                    analysisTime: data.analysisTime
-                }
-                if (!fs.existsSync(`./cypress/screenshots/compare/pruebas-de-regresion/${scenario}-compare/`)) {
-                    fs.mkdirSync(`./cypress/screenshots/compare/pruebas-de-regresion/${scenario}-compare/`, {recursive: true});
-                }
-                fs.writeFileSync(`./cypress/screenshots/compare/pruebas-de-regresion/${scenario}-compare/compare-step${i}.png`, data.getBuffer());
-            }
-        } else console.log(`El escenario ${scenario} no tiene la misma cantidad de screenshots en las dos versiones comparada.`);
+  let resultInfo = {};
+  let datetime = new Date().toISOString().replace(/:/g, ".");
+  let locationscreenshotCurVer={}
+  let locationscreenshotOldVer={}
+  for (let i = 0; i < scenarios.length; i++) {
+    let resultStepInfo = {};
+    if (!fs.existsSync(`./results`)) {
+      fs.mkdirSync(`./results`, { recursive: true });
     }
-    fs.writeFileSync(`./cypress/screenshots/compare/report.html`, createReport(datetime, resultInfo));
-    fs.copyFileSync('./index.css', `./cypress/screenshots/compare/index.css`);
+    locationscreenshotCurVer[scenarios[i]]=`../kraken/results/4.47/${scenarios_route_kraken[i]}`
+    locationscreenshotOldVer[scenarios[i]]=`../cypress/screenshots/pruebas-de-regresion/3.42/${scenarios_route_cypress[i]}/`
+    const fileCountVerCurrent = fs.readdirSync(
+        locationscreenshotCurVer[scenarios[i]]).length;
+    const fileCountVerOld = fs.readdirSync(
+        locationscreenshotOldVer[scenarios[i]]
+    ).length;
 
-    console.log('------------------------------------------------------------------------------------')
-    console.log("Execution finished. Check the report under the results folder")
-    return resultInfo;
+    if (fileCountVerCurrent == fileCountVerOld) {
+      for (let j = 1; j <= fileCountVerCurrent; j++) {
+        const data = await compareImages(
+          fs.readFileSync(
+            `${locationscreenshotCurVer[scenarios[i]]}/step${j}.png`
+          ),
+          fs.readFileSync(
+            `${locationscreenshotOldVer[scenarios[i]]}/step${j}.png`
+          ),
+          options
+        );
+        resultStepInfo[`step${j}`] = {
+          isSameDimensions: data.isSameDimensions,
+          dimensionDifference: JSON.stringify(data.dimensionDifference),
+          rawMisMatchPercentage: data.rawMisMatchPercentage,
+          misMatchPercentage: data.misMatchPercentage,
+          diffBounds: JSON.stringify(data.diffBounds),
+          analysisTime: data.analysisTime,
+        };
+        if (
+          !fs.existsSync(
+            `./results/compare-${scenarios[i].replace(/\s/g, "_")}`
+          )
+        ) {   
+          fs.mkdirSync(
+            `./results/compare-${scenarios[i].replace(/\s/g, "_")}`,
+            { recursive: true }
+          );
+        }
+        fs.writeFileSync(
+          `./results/compare-${scenarios[i].replace(/\s/g, "_")}/step${j}.png`,
+          data.getBuffer()
+        );
+      }
+    }
+
+    resultInfo[scenarios[i]] = resultStepInfo;
+  }
+  fs.writeFileSync(`./results/report.html`, createReport(datetime, resultInfo, locationscreenshotCurVer,locationscreenshotOldVer));
+  console.log(
+    "------------------------------------------------------------------------------------"
+  );
+  console.log("Execution finished. Check the report under the results folder");
+  return resultInfo;
 }
-
 (async () => console.log(await executeTest()))();
 
-function browser(b, info){
-    // return
-    let cadenaUno = `<div class=" browser" id="test0">
-    <div class=" btitle">
-        <h2>Browser: ${b}</h2>
-        <p>Data: ${JSON.stringify(info)}</p>
-    </div>`;
+function stepsInfo(key, info,scenario,locationscreenshotCurVer,locationscreenshotOldVer){
+   
 
-    const fileCountVerCurrent = fs.readdirSync(`./cypress/screenshots/pruebas-de-regresion/4.47/${b}/`).length
+  return ` <h3>${key}</h3>
+  <p>data: ${JSON.stringify(info)}</p>
+  <div class="col">
+    <h4>Actual</h4>
+    <img src="../${locationscreenshotCurVer}/${key}.png" class="img-fluid" alt="..." />
+  </div>
+  <div class="col">
+    <h4>Antigua</h4>
+    <img src="../${locationscreenshotOldVer}${key}.png" class="img-fluid" alt="..." />
+  </div>
 
-    let paso = '';
-    for (let i = 1; i <= fileCountVerCurrent ; i++) {
-        paso = paso + `<div className="imgline">
-            <div className="imgcontainer">
-                <span className="imgname">Reference</span>
-                <img className="img2" src="../../screenshots/pruebas-de-regresion/4.47/${b}/step${i}.png" id="refImage" label="Reference">
-            </div>
-            <div className="imgcontainer">
-                <span className="imgname">Test</span>
-                <img className="img2" src="../../screenshots/pruebas-de-regresion/3.42/${b}/step${i}.png" id="testImage" label="Test">
-            </div>
-        </div>`;
+  <div class="row">
+    <div class="col">
+      <h4>Comparacion</h4>
+      <img src="${ `./compare-${scenario.replace(/\s/g, "_")}/${key}.png`}" class="img-fluid" alt="..." />
+    </div>
+  </div>`;
+}
+function info(scenario, steps,locationscreenshotCurVer,locationscreenshotOldVer) {
+    
+  let active = scenario === config.scenarios[0] ? "active" : "";
+  let stepsinfo=""
+
+    for(var[key,value] of Object.entries(steps)){
+
+        stepsinfo=stepsinfo+stepsInfo(key,value,scenario,locationscreenshotCurVer[scenario],locationscreenshotOldVer[scenario])
     }
-
-    //   <div class="imgline">
-    //     <div class="imgcontainer">
-    //       <span class="imgname">Diff</span>
-    //       <img class="imgfull" src="./compare-${b}.png" id="diffImage" label="Diff">
-    //     </div>
-    //   </div>
-    // </div>`
-    return cadenaUno + paso;
+  return `<div id="${scenario}" class="container tab-pane ${active}">
+<br />
+<h3>${scenario}</h3>
+<div class="container">
+  <div class="row">
+   ${stepsinfo}
+  </div>
+</div>
+</div>`;
+}
+function scenariosList(scenario) {
+  if (scenario === config.scenarios[0]) {
+    return `<li class="nav-item">
+    <a class="nav-link active" data-bs-toggle="tab" href="#${scenario}">${scenario}</a>
+  </li>`;
+  } else {
+    return `<li class="nav-item">
+    <a class="nav-link" data-bs-toggle="tab" href="#${scenario}">${scenario}</a>
+  </li>`;
+  }
 }
 
-function createReport(datetime, resInfo){
-    return `
-    <html>
-        <head>
-            <title> VRT Report </title>
-            <link href="index.css" type="text/css" rel="stylesheet">
-        </head>
-        <body>
-            <h1>Report for 
-                 <a href="${config.url}"> ${config.url}</a>
-            </h1>
-            <p>Executed: ${datetime}</p>
-            <div id="visualizer">
-                ${scenarios.map(b=>browser(b, resInfo[b]))}
-            </div>
-        </body>
-    </html>`
+function createReport(datetime, resInfo, locationscreenshotCurVer,locationscreenshotOldVer) {
+  return `
+  <html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="container mt-3">
+      <h2> Version actual(4.47)
+      <a href="${config.urlActual}"> ${config.urlActual}</a></h2><br>
+      <h2> Version anterior(3.42)
+      <a href="${config.urlAnterior}"> ${config.urlAnterior}</a></h2>
+      <p>Executed: ${datetime}</p>
+      <br />
+      <ul class="nav nav-tabs" role="tablist">
+        ${config.scenarios.map((scenario) => scenariosList(scenario))}
+      </ul>
+      <div class="tab-content">
+        ${config.scenarios.map((scenario) => info(scenario, resInfo[scenario],locationscreenshotCurVer,locationscreenshotOldVer))}
+      </div>
+    </div>
+  </body>
+</html>`;
 }
