@@ -5,9 +5,7 @@ describe("Page Flow", function () {
     cy.viewport(1920, 1080)
     cy.wait(1000);
     crear_pagina("New page","/scenario_createPage");
-    crear_pagina_programada("Page scheduled","/sceneario_createScheduledPage");
-    crear_pagina_con_draft("draft page","/scenario_createPageDraft");
-    crear_pagina_con_nombre_extenso("Crear pagina con nombre extenso","/scenario_longName");
+    
   });
 });
 
@@ -30,7 +28,7 @@ function crear_pagina(titulo,ruta) {
   logIn(i.toString(),ruta);
   i+=1
   cy.screenshot(ruta+"/step"+i.toString(),{overwrite: true, capture: 'fullPage'})
-  
+  i+=1
   // IR a la seccion de pages
   cy.xpath(
     "/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[1]/ul[2]/li[2]/a[1]"
@@ -64,7 +62,7 @@ function crear_pagina(titulo,ruta) {
     "/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/div[1]/div[2]/div[1]"
   ).click();
   cy.wait(2000);
-  cy.xpath("/html[1]/body[1]/div[1]/div[1]/ul[1]/li[1]").click();
+  cy.xpath("/html[1]/body[1]/div[1]/div[1]/ul[1]/li[2]").click();
   cy.screenshot(ruta+"/step"+i.toString(),{overwrite: true, capture: 'fullPage'})
   i+=1 
   verificarTitulo(titulo);
@@ -206,7 +204,7 @@ function crear_pagina_con_draft(titulo,ruta) {
   i+=1
   cy.xpath("/html/body/div[2]/div/main/section/div/header/section/div/div[2]/div[1]/span").click()
   cy.wait(2000)
-  cy-xpath("/html/body/div[1]/div/ul/li[4]").click()
+  cy.xpath("/html/body/div[1]/div/ul/li[4]").click()
   cy.wait(2000)
   verificarTitulo(titulo);
   cy.wait(1000);
