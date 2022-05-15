@@ -92,15 +92,16 @@ function stepsInfo(key, info,scenario,locationscreenshotCurVer,locationscreensho
   </div>`;
 }
 function info(scenario, steps,locationscreenshotCurVer,locationscreenshotOldVer) {
-    
-  let active = scenario === config.scenarios[0] ? "active" : "";
+  console.log(scenario)
+  let active = scenario === config.scenarios[0] ? "active" : "fade";
   let stepsinfo=""
 
     for(var[key,value] of Object.entries(steps)){
 
         stepsinfo=stepsinfo+stepsInfo(key,value,scenario,locationscreenshotCurVer[scenario],locationscreenshotOldVer[scenario])
     }
-  return `<div id="${scenario}" class="container tab-pane ${active}">
+   
+  return `<div id="${scenario.replace(/\s/g, "_")}" class="container tab-pane ${active}">
 <br />
 <h3>${scenario}</h3>
 <div class="container">
@@ -113,11 +114,11 @@ function info(scenario, steps,locationscreenshotCurVer,locationscreenshotOldVer)
 function scenariosList(scenario) {
   if (scenario === config.scenarios[0]) {
     return `<li class="nav-item">
-    <a class="nav-link active" data-bs-toggle="tab" href="#${scenario}">${scenario}</a>
+    <a class="nav-link active" data-bs-toggle="tab" href="#${scenario.replace(/\s/g, "_")}">${scenario}</a>
   </li>`;
   } else {
     return `<li class="nav-item">
-    <a class="nav-link" data-bs-toggle="tab" href="#${scenario}">${scenario}</a>
+    <a class="nav-link" data-bs-toggle="tab" href="#${scenario.replace(/\s/g, "_")}">${scenario}</a>
   </li>`;
   }
 }
