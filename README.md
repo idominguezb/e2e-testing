@@ -60,7 +60,9 @@
 
 # Ejecutar las pruebas
 
-Antes de ejecutar las pruebas se recomienda tener un usuario con email: prueba@example.com y password:prueba@example.com123456789, de no ser asi se debe modifcar las variables USER y PASSWORD en el archivo properties.json y para cypress se debe modifcar en la funcion login de todos los archivos de que se encuentran en integrations los valores cambiando de #amber7 y #amber9 en la funcion .type() por el usuario y contraseña respectivamente.
+Antes de ejecutar las pruebas se recomienda tener un usuario con email: prueba@example.com y password:prueba@example.com123456789 en ambas versiones, de no ser asi se debe modifcar las variables USER y PASSWORD en el archivo properties.json y para cypress se debe modifcar en la funcion login de todos los archivos de que se encuentran en integrations los valores cambiando de #amber7 y #amber9 en la funcion .type() por el usuario y contraseña respectivamente.
+
+La version 3.42 se debe ejecutar en el puerto 3001 y la version 4.47 en el puerto 2368
 
 ## Cypress 
 Para hacer las pruebas de regresion se recomienda ejecutar las pruebas de ghost 3.42 primero
