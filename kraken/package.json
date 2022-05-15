@@ -4,6 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "kraken-node run",
+    "enableAll": "node index.js",
+    "enablev3": "node index.js v3",
+    "enablev4": "node index.js v4",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
