@@ -59,14 +59,21 @@
 | EMB4          | Borrar miembro                                          | Positivo          |
 
 # Ejecutar las pruebas
+
 Antes de ejecutar las pruebas se recomienda tener un usuario con email: prueba@example.com y password:prueba@example.com123456789, de no ser asi se debe modifcar las variables USER y PASSWORD en el archivo properties.json y para cypress se debe modifcar en la funcion login de todos los archivos de que se encuentran en integrations los valores cambiando de #amber7 y #amber9 en la funcion .type() por el usuario y contraseña respectivamente.
+
 ## Cypress 
 1. Ejecute el comando `npm install` en la raiz del repositorio
 2. Ejecute el comando `cypress run` en la raiz del repositorio
 
 ## Kraken
-*** nota: en caso de que aparezca este error al handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.
+*** nota: en caso de que aparezca este error al ejecutar handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.
 1. Ingrese a la carpeta kraken desde la terminal 
 2. Ejecute el comando `npm install`
 3. Ejecute el comando `npx kraken-node run` 
+
+# VRT
+1. Ir a la carpeta resemblejs
+2. Ejecutar `npm install`
+3. Ejecutar el comando `npm index.js`
 
