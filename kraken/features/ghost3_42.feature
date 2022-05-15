@@ -29,9 +29,9 @@ Feature: Ghost 3.42
     Then I take a screenshot
     Then I check the first row with tittle 'New page'
 
-  @user1 @web
+  @user6 @web
   Scenario: Creación exitosa de un post
-    Given I navigate to page "http://localhost:2368/ghost/"
+    Given I navigate to page "http://localhost:3001/ghost/"
     And I wait for 5 seconds
     When I enter email "<USER>" and pass "<PASSWORD>"
     And I wait for 5 seconds
@@ -54,7 +54,7 @@ Feature: Ghost 3.42
     Then I validate the title of post 2
     And I wait for 5 seconds
 
-  @user2 @web
+  @user7 @web
   Scenario: Creación exitosa de un Tag
     Given I navigate to "http://localhost:3001/ghost"
     And I wait for 5 seconds
@@ -77,7 +77,25 @@ Feature: Ghost 3.42
     Then I found new tag created "MISO1"
     Then I take a screenshot
 
+  @user8 @web
+  Scenario: Crear integración
+    Given I navigate to page "http://localhost:3001/ghost/#/signin"
+    And I wait for 5 seconds
+    When I set value for "username" in "[name='identification']" to "<USER>"
+    And I set value for "password" in "[name='password']" to "<PASSWORD>"
+    Then I take a screenshot
+    And I click "login" in ".login"
+    And I wait for 2 seconds    
+    Given I navigate to page "http://localhost:3001/ghost/#/settings/integrations/new"
+    And I wait for 1 seconds    
+    And I set value for "integration name" in "#new-integration-name" to "test"
+    Then I take a screenshot
+    And I click "create integration" in ".modal-footer button:last-child" 
+    And I wait for 2 seconds    
+    Given I navigate to page "http://localhost:3001/ghost/#/settings/integrations"
+    And I wait for 2 seconds    
+    Then I take a screenshot
 
+
+  
  
-
-

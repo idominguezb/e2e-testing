@@ -1,5 +1,13 @@
 # e2e-testing 
 [Como ejecutar](#Ejecutar-las-pruebas)
+# Escenario de pruebas(ghost 3.42)
+| Identificador | Nombre escenario      | Tipo     |
+|---------------|-----------------------|----------|
+|  ECPT1        | Crear post            | Positivo |
+| ECPG1         | Crear pagina          | Positivo |
+| ECT1          | Crear tag             | Positivo |
+| ECI1          | Crear integracion     | Positivo |
+| ECPT2         | Crear post programado | Positivo |
 # Funcionalidades probadas 
 | Funcionalidad | Detalle                                                                                                            | Escenarios |
 |---------------|--------------------------------------------------------------------------------------------------------------------|------------|
@@ -9,7 +17,7 @@
 | Integraciones | Se requiere adiministrar las integraciones de la pagina                                                            | [Escenarios](#Escenarios-para-intergacion)           |
 | Membresia     | Administrar los miembros que se suscriben al blog                                                                  |      [Escenarios](#Escenarios-para-miembros)      |
 
-# Escenarios de pruebas
+# Escenarios de pruebas(Ghost 4.47)
 # Escenarios para crear post
 | Identificador | Nombre                        | Tipo de escenario |
 |---------------|-------------------------------|-------------------|
@@ -51,13 +59,34 @@
 | EMB4          | Borrar miembro                                          | Positivo          |
 
 # Ejecutar las pruebas
-Antes de ejecutar las pruebas se recomienda tener un usuario con email: prueba@example.com y password:prueba@example.com123456789, de no ser asi se debe modifcar las variables USER y PASSWORD en el archivo properties.json y para cypress se debe modifcar en la funcion login de todos los archivos de que se encuentran en integrations los valores cambiando de #amber7 y #amber9 en la funcion .type() por el usuario y contraseña respectivamente.
+
+Antes de ejecutar las pruebas se recomienda tener un usuario con email: prueba@example.com y password:prueba@example.com123456789 en ambas versiones, de no ser asi se debe modifcar las variables USER y PASSWORD en el archivo properties.json y para cypress se debe modifcar en la funcion login de todos los archivos de que se encuentran en integrations los valores cambiando de #amber7 y #amber9 en la funcion .type() por el usuario y contraseña respectivamente.
+
+La version 3.42 se debe ejecutar en el puerto 3001 y la version 4.47 en el puerto 2368
+
 ## Cypress 
+Para hacer las pruebas de regresion se recomienda ejecutar las pruebas de ghost 3.42 primero
 1. Ejecute el comando `npm install` en la raiz del repositorio
-2. Ejecute el comando `cypress run` en la raiz del repositorio
+2. Para ejecutar las pruebas:
+   * Ejecutar solo las pruebas de ghost 3.42 `cypress run --spec "cypress/integration/pruebas-de-regresion/3.42/*.spec.js"`
+   * Ejecutar solos las pruebas de ghost 4.47 `cypress run --spec "cypress/integration/pruebas-de-regresion/4.47/*.spec.js"`
+   * Ejecutar todas las pruebas `cypress run`
 
 ## Kraken
+*Para realizar las pruebas de regresion se recomiendo ejecutar primero las pruebas de ghost 4.47 que estaran en el archivo* `ghost4_47.feature`
+ <br>
+
 1. Ingrese a la carpeta kraken desde la terminal 
 2. Ejecute el comando `npm install`
-3. Ejecute el comando `npx kraken-node run` 
- ***nota: en caso de que aparezca este error al handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.
+3. Ejecute el comando `npx kraken-node run`
+<br>
+*Nota: en caso de que aparezca este error al ejecutar handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.*
+
+# VRT
+Antes debe ejecutar las pruebas
+1. Ir a la carpeta resemblejs
+2. Ejecutar `npm install`
+3. Ejecutar el comando `node index.js`
+4. Dirigirse a la carpeta results generada
+5. Abrir el archivo index.html
+
