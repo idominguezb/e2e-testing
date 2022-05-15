@@ -59,7 +59,7 @@ When("I change visibility and publish it", async function () {
 
   await publishButton.click();
   await this.driver.saveScreenshot(
-    this.url + "/" + this.step.toString() + ".png"
+    this.url + "/step" + this.step.toString() + ".png"
   );
   this.step += 1;
   let confirmButton = await this.driver.$(
@@ -146,7 +146,7 @@ When("I click on all pages {string}", async function (type) {
   await pagesListFilter.click();
 
   await this.driver.saveScreenshot(
-    this.url + "/" + this.step.toString() + ".png"
+    this.url + "/step" + this.step.toString() + ".png"
   );
   this.step += 1;
   let pagePublishedSelector=this.version==="3.42"?"/html/body/div[1]/div/ul/li[3]": "//li[@class='ember-power-select-option'][@data-option-index='" +

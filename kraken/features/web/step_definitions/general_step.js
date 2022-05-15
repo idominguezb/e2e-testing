@@ -15,7 +15,7 @@ Before(function (scenario) {
 
 });
 Given("I navigate to {kraken-string}", async function (home) {
-    await this.driver.setWindowSize(1920, 1080)
+    await this.driver.setWindowSize(1920, 924)
   return await this.driver.navigateTo(home);
 });
 
@@ -30,7 +30,7 @@ When("I enter email {kraken-string}", async function (email) {
 
 Then("I take a screenshot", async function () {
   await this.driver.saveScreenshot(
-    this.url + "/" + this.step.toString() + ".png"
+    this.url + "/step"+ this.step.toString() + ".png"
   );
   this.step += 1;
 });

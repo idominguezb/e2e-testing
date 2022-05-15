@@ -1,25 +1,8 @@
 Feature: Ghost 4.47
 
-@user20 @web
-Scenario: Crear integración
-    Given I navigate to page "http://localhost:2368/ghost/#/signin"
-    And I wait for 5 seconds
-    When I set value for "username" in "[name='identification']" to "<USER>"
-    And I set value for "password" in "[name='password']" to "<PASSWORD>"
-    And I click "login" in ".js-login-button"
-    And I wait for 2 seconds    
-    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
-    And I click "add integration" in ".gh-main-section:last-child > div:last-child a" 
-    And I wait for 1 seconds    
-    And I set value for "integration name" in "#new-integration-name" to "random"
-    And I click "create integration" in ".modal-footer button:last-child" 
-    And I wait for 2 seconds    
-    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
-    And I wait for 2 seconds    
-    And I validate "integration name" "random" ".gh-main-section:last-child .apps-grid .apps-grid-cell:last-child .apps-card-app-title"
 
 
-@user5 @web
+@user1 @web
 Scenario:Create page
 Given I navigate to "http://localhost:2368/ghost/"
     And I wait for 2 seconds
@@ -43,12 +26,14 @@ Given I navigate to "http://localhost:2368/ghost/"
     And I wait for 1 seconds
     Then I take a screenshot
     When I go back to pages section
+    Then I take a screenshot
     When I click on all pages 'published'
     When I click on public
     And I wait for 2 seconds
     Then I take a screenshot
     Then I check the first row with tittle 'New page'
-  @user1 @web
+
+  @user2 @web
   Scenario: Creación exitosa de un post
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 5 seconds
@@ -74,7 +59,7 @@ Given I navigate to "http://localhost:2368/ghost/"
     And I wait for 5 seconds
 
 
- @user11 @web
+ @user3 @web
   Scenario: Create Tag
     Given I navigate to "http://localhost:2368/ghost"
     And I wait for 5 seconds
@@ -94,7 +79,7 @@ Given I navigate to "http://localhost:2368/ghost/"
     And I wait for 5 seconds
     Then I found new tag created "MISO1"
 
-@user2 @web
+@user4 @web
   Scenario: Creación exitosa de un post programada
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 5 seconds
@@ -118,5 +103,24 @@ Given I navigate to "http://localhost:2368/ghost/"
     And I wait for 5 seconds
     Then I validate the title of post 3
     And I wait for 5 seconds
+
+@user5 @web
+Scenario: Crear integración
+    Given I navigate to page "http://localhost:2368/ghost/#/signin"
+    And I wait for 5 seconds
+    When I set value for "username" in "[name='identification']" to "<USER>"
+    And I set value for "password" in "[name='password']" to "<PASSWORD>"
+    And I click "login" in ".js-login-button"
+    And I wait for 2 seconds    
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
+    And I click "add integration" in ".gh-main-section:last-child > div:last-child a" 
+    And I wait for 1 seconds    
+    And I set value for "integration name" in "#new-integration-name" to "random"
+    And I click "create integration" in ".modal-footer button:last-child" 
+    And I wait for 2 seconds    
+    Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
+    And I wait for 2 seconds    
+    And I validate "integration name" "random" ".gh-main-section:last-child .apps-grid .apps-grid-cell:last-child .apps-card-app-title"
+
 
   
