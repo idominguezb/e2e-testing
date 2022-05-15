@@ -76,8 +76,9 @@ Para hacer las pruebas de regresion se recomienda ejecutar las pruebas de ghost 
 
 1. Ingrese a la carpeta kraken desde la terminal 
 2. Ejecute el comando `npm install`
-3. Ejecute el comando `npx kraken-node run` 
- *nota: en caso de que aparezca este error al ejecutar handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.*
+3. Ejecute el comando `npx kraken-node run`
+<br>
+***Nota**: en caso de que aparezca este error al ejecutar handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.*
 
 # VRT
 Antes debe ejecutar las pruebas
