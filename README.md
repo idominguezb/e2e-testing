@@ -1,5 +1,13 @@
 # e2e-testing 
 [Como ejecutar](#Ejecutar-las-pruebas)
+# Escenario de pruebas(ghost 3.42)
+| Identificador | Nombre escenario      | Tipo     |
+|---------------|-----------------------|----------|
+|  ECPT1        | Crear post            | Positivo |
+| ECPG1         | Crear pagina          | Positivo |
+| ECT1          | Crear tag             | Positivo |
+| ECI1          | Crear integracion     | Positivo |
+| ECPT2         | Crear post programado | Positivo |
 # Funcionalidades probadas 
 | Funcionalidad | Detalle                                                                                                            | Escenarios |
 |---------------|--------------------------------------------------------------------------------------------------------------------|------------|
@@ -9,7 +17,7 @@
 | Integraciones | Se requiere adiministrar las integraciones de la pagina                                                            | [Escenarios](#Escenarios-para-intergacion)           |
 | Membresia     | Administrar los miembros que se suscriben al blog                                                                  |      [Escenarios](#Escenarios-para-miembros)      |
 
-# Escenarios de pruebas
+# Escenarios de pruebas(Ghost 4.47)
 # Escenarios para crear post
 | Identificador | Nombre                        | Tipo de escenario |
 |---------------|-------------------------------|-------------------|
