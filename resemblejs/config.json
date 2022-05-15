@@ -1,9 +1,9 @@
 {
   "urlActual":"https://localhost:2368/ghost",
   "urlAnterior":"https://localhost:3001/ghost",
-  "scenarios":["Create Page","Create tag"],
-  "scenarios_route_cypress":["page.spec.js/scenario_createPage","tag.spec.js/scenario_createTag","integration.spec.js/createIntegration","post.spec.js/createPost","post.spec.js/createPostProgrammed"],
-  "scenarios_route_kraken":["Create_page","Creacion_exitosa_de_un_Tag"],
+  "scenarios":["Create Page","Create tag","Create integration"],
+  "scenarios_route_cypress":["page.spec.js/scenario_createPage","tag.spec.js/scenario_createTag","integration.spec.js/scenario_createIntegration","post.spec.js/createPost","post.spec.js/createPostProgrammed"],
+  "scenarios_route_kraken":["Create_page","Creacion_exitosa_de_un_Tag","Crear_integración"],
   "options":{
       "output": {
           "errorColor": {

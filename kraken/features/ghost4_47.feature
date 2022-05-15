@@ -1,7 +1,4 @@
 Feature: Ghost 4.47
-
-
-
 @user1 @web
 Scenario:Create page
 Given I navigate to "http://localhost:2368/ghost/"
@@ -25,6 +22,7 @@ Given I navigate to "http://localhost:2368/ghost/"
     When I Click on publish again
     And I wait for 1 seconds
     Then I take a screenshot
+    And I wait for 2 seconds
     When I go back to pages section
     Then I take a screenshot
     When I click on all pages 'published'
@@ -60,12 +58,13 @@ Given I navigate to "http://localhost:2368/ghost/"
 
 
  @user3 @web
-  Scenario: Create Tag
+  Scenario: Creacion exitosa de un Tag
     Given I navigate to "http://localhost:2368/ghost"
     And I wait for 5 seconds
     When I enter email "<USER>" for tag
     And I wait for 5 seconds
     When I enter password "<PASSWORD>" for tag
+    Then I take a screenshot
     And I wait for 5 seconds
     When I click next for tag
     And I wait for 5 seconds
@@ -74,10 +73,13 @@ Given I navigate to "http://localhost:2368/ghost/"
     When I click on new tag
     And I wait for 5 seconds
     When I enter tag name "MISO1"
+    Then I take a screenshot
     When I save tag
+    Then I take a screenshot
     When I navigate to "http://localhost:2368/ghost/#/tags"
     And I wait for 5 seconds
     Then I found new tag created "MISO1"
+    Then I take a screenshot
 
 @user4 @web
   Scenario: Creación exitosa de un post programada
@@ -104,22 +106,29 @@ Given I navigate to "http://localhost:2368/ghost/"
     Then I validate the title of post 3
     And I wait for 5 seconds
 
+
+
+
 @user5 @web
 Scenario: Crear integración
     Given I navigate to page "http://localhost:2368/ghost/#/signin"
     And I wait for 5 seconds
     When I set value for "username" in "[name='identification']" to "<USER>"
     And I set value for "password" in "[name='password']" to "<PASSWORD>"
+    Then I take a screenshot
     And I click "login" in ".js-login-button"
     And I wait for 2 seconds    
     Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
     And I click "add integration" in ".gh-main-section:last-child > div:last-child a" 
     And I wait for 1 seconds    
     And I set value for "integration name" in "#new-integration-name" to "random"
+    Then I take a screenshot
     And I click "create integration" in ".modal-footer button:last-child" 
+    Then I take a screenshot
     And I wait for 2 seconds    
     Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
-    And I wait for 2 seconds    
+    And I wait for 2 seconds 
+    Then I take a screenshot   
     And I validate "integration name" "random" ".gh-main-section:last-child .apps-grid .apps-grid-cell:last-child .apps-card-app-title"
 
 
