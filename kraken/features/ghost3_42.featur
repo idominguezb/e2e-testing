@@ -63,14 +63,18 @@ Feature: Ghost 3.42
     And I wait for 5 seconds
     And I click view with selector "#ember10"
     When I enter password "<PASSWORD>"
+    Then I take a screenshot
     And I wait for 5 seconds
     And I click view with selector "#ember12"
     And I wait for 5 seconds
     When I navigate to "http://localhost:3001/ghost/#/tags"
+    Then I take a screenshot
     And I wait for 5 seconds
     When I click on new tag
+    Then I take a screenshot
     And I wait for 5 seconds
     When I enter tag name "MISO1"
+    Then I take a screenshot
     When I save tag
     When I navigate to "http://localhost:3001/ghost/#/tags"
     And I wait for 5 seconds
