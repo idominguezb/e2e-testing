@@ -86,7 +86,7 @@ Para hacer las pruebas de regresion se recomienda ejecutar las pruebas de ghost 
 Antes debe ejecutar las pruebas
 1. Ir a la carpeta resemblejs
 2. Ejecutar `npm install`
-3. Ejecutar el comando `npm index.js`
+3. Ejecutar el comando `node index.js`
 4. Dirigirse a la carpeta results generada
 5. Abrir el archivo index.html
 
