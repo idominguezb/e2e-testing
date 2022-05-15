@@ -68,4 +68,4 @@ Antes de ejecutar las pruebas se recomienda tener un usuario con email: prueba@e
 1. Ingrese a la carpeta kraken desde la terminal 
 2. Ejecute el comando `npm install`
 3. Ejecute el comando `npx kraken-node run` 
- ***nota: en caso de que aparezca este error al handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.
+***nota: en caso de que aparezca este error al handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.
