@@ -17,7 +17,7 @@ Feature: Ghost 4.47
     Then I take a screenshot
     When I type the tittle 'New page'
     When I type the description
-    And I wait for 2 seconds
+    And I wait for 4 seconds
     When I Click on publish
     And I wait for 1 seconds
     When I Click on publish again

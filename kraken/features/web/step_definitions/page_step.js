@@ -54,7 +54,7 @@ When("I change visibility and publish it", async function () {
 
   await visibility.selectByIndex(2);
   let publishButton = await this.driver.$(
-    "//span[normalize-space()='Publish']"
+    "/html/body/div[2]/div/main/div/section/header/section/div[2]/div[1]/span"
   );
 
   await publishButton.click();
