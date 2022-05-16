@@ -21,7 +21,7 @@ function login() {
 
 
 function createNewTag(){ 
-  cy.visit('http://localhost:2369/ghost/#/tags');  cy.wait(2000)
+  cy.visit('http://localhost:2368/ghost/#/tags');  cy.wait(2000)
   cy.contains('New tag').click();
 
   
@@ -30,7 +30,7 @@ function createNewTag(){
   const saveButton = cy.contains('Save');
   saveButton.click()
   cy.wait(1000)
-  cy.visit('http://localhost:2369/ghost/#/tags');
+  cy.visit('http://localhost:2368/ghost/#/tags');
   cy.screenshot()
 }
 
@@ -98,5 +98,3 @@ function makeDescription(n) {
 
   return text;
 }
-
-
