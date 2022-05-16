@@ -82,7 +82,7 @@ Para hacer las pruebas de regresion se recomienda ejecutar las pruebas de ghost 
   * Ejecutar solo los 5 feature para realizar el VRT `npm run enablev4` 
   * Ejecutar solo los 5 feature de la version 3.42 `npm run enablev3`
   * Ejecutar todos `npm run enablevAll`  
-4. Ejecute el comando `npx kraken-node run`
+4. Ejecute el comando `npx kraken-node run` para empezar con la ejecucion
 <br>
 *Nota: en caso de que aparezca este error al ejecutar handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.*
 
