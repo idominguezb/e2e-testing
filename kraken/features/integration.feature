@@ -1,3 +1,5 @@
+
+Feature: Integración
 @user20 @web
 Scenario: Crear integración
     Given I navigate to page "http://localhost:2368/ghost/#/signin"

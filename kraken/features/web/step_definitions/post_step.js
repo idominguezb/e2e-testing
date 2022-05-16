@@ -15,7 +15,12 @@ When('I click log in', async function () {
 When('I new post click', async function () {
     let elementPost = this.driver.$('/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[1]/ul[2]/li[1]/a[1]');
     await elementPost.click();
+   
     await sleep(2000);
+  await   this.driver.saveScreenshot(
+        this.url + "/step" + this.step.toString() + ".png"
+      );
+    this.step+=1;
     let buttonElement = await this.driver.$('/html[1]/body[1]/div[2]/div[1]/nav[1]/div[1]/section[1]/div[1]/ul[2]/li[1]/a[2]/span[1]/*[name()=\'svg\'][1]');
     buttonElement.click();
 });
@@ -38,7 +43,11 @@ When('I click dropdown', async function () {
 
 When('I click publish', async function () {
     let element = await this.driver.$('/html[1]/body[1]/div[1]/div[1]/footer[1]/button[2]/span[1]');
-    element.click();
+    await element.click();
+    await this.driver.saveScreenshot(
+        this.url + "/step" + this.step.toString() + ".png"
+      );
+      this.step+=1;
 })
 
 When('I click confirm', async function () {
@@ -47,6 +56,10 @@ When('I click confirm', async function () {
 })
 
 When('I back to lists post', async function () {
+    await this.driver.saveScreenshot(
+        this.url + "/step" + this.step.toString() + ".png"
+      );
+      this.step+=1;
     let element = await this.driver.$('/html[1]/body[1]/div[2]/div[1]/main[1]/div[1]/section[1]/header[1]/div[1]/div[1]/a[1]/span[1]');
     element.click();
 })
@@ -55,9 +68,14 @@ Then('I validate the title of post {int}', async function (item) {
     let elementList = await this.driver.$('/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/div[1]/header[1]/section[1]/div[1]/div[1]/div[1]/span[1]');
     elementList.click();
     await sleep(2000);
+   await this.driver.saveScreenshot(
+        this.url + "/step" + this.step.toString() + ".png"
+      );
+    this.step+=1
     let elementPublish = await this.driver.$('/html[1]/body[1]/div[1]/div[1]/ul[1]/li[' + item + ']');
     elementPublish.click();
     await sleep(2000);
+    
     let elementText = await this.driver.$('/html[1]/body[1]/div[2]/div[1]/main[1]/section[1]/section[1]/ol[1]/li[2]/a[1]/h3[1]').getText();
     console.log(elementText);
 })
@@ -65,9 +83,14 @@ Then('I validate the title of post {int}', async function (item) {
 When('I click publish program', async function () {
     let element = await this.driver.$('/html[1]/body[1]/div[1]/div[1]/div[1]/section[1]/div[1]/div[2]/div[2]/div[1]');
     element.click();
+    
     await sleep(2000)
     let elementSchedule = await this.driver.$('/html[1]/body[1]/div[1]/div[1]/footer[1]/button[2]/span[1]');
-    elementSchedule.click();
+    await elementSchedule.click();
+    await this.driver.saveScreenshot(
+        this.url + "/step" + this.step.toString() + ".png"
+      );
+    this.step+=1
 })
 
 When('I write the title with length {int}', async function (value) {

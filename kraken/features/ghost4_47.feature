@@ -32,30 +32,38 @@ Feature: Ghost 4.47
     Then I take a screenshot
     Then I check the first row with tittle 'New page'
 
-  @user2 @web
+@user2 @web
   Scenario: Creación exitosa de un post
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 5 seconds
     When I enter email "<USER>" and pass "<PASSWORD>"
+    Then I take a screenshot
     And I wait for 5 seconds
     And I click log in
     And I wait for 5 seconds
+    Then I take a screenshot
     And I new post click
+    Then I take a screenshot
     And I wait for 2 seconds
     And I write the title of my post: 'This is my first my post !!!'
     And I wait for 2 seconds
     And I write a short text
     And I wait for 5 seconds
+    Then I take a screenshot
     And I click dropdown
+    Then I take a screenshot
     And I wait for 5 seconds
     And I click publish
     And I wait for 8 seconds
     And I click confirm
+    Then I take a screenshot
     And I wait for 5 seconds
     And I back to lists post
     And I wait for 5 seconds
-    Then I validate the title of post 2
+    Then I validate the title of post 3
     And I wait for 5 seconds
+     Then I take a screenshot
+
 
   @user3 @web
   Scenario: Creacion exitosa de un Tag
@@ -86,25 +94,35 @@ Feature: Ghost 4.47
     Given I navigate to page "http://localhost:2368/ghost/"
     And I wait for 5 seconds
     When I enter email "<USER>" and pass "<PASSWORD>"
+    Then I take a screenshot
     And I wait for 5 seconds
     And I click log in
     And I wait for 5 seconds
+    Then I take a screenshot
     And I new post click
+     
     And I wait for 5 seconds
+    Then I take a screenshot
     And I write the title of my post: 'This is my first my post programmed !!!'
     And I wait for 5 seconds
     And I write a short text
     And I wait for 5 seconds
+    Then I take a screenshot
     And I click dropdown
+     Then I take a screenshot
     And I wait for 5 seconds
     And I click publish program
+     Then I take a screenshot
     And I wait for 5 seconds
     And I click confirm
     And I wait for 5 seconds
     And I back to lists post
+     Then I take a screenshot
     And I wait for 5 seconds
-    Then I validate the title of post 3
+    Then I validate the title of post 4
+     Then I take a screenshot
     And I wait for 5 seconds
+
 
   @user5 @web
   Scenario: Crear integración
@@ -116,9 +134,7 @@ Feature: Ghost 4.47
     And I click "login" in ".js-login-button"
     And I wait for 2 seconds    
     Given I navigate to page "http://localhost:2368/ghost/#/settings/integrations"
-    Then I take a screenshot
     And I click "add integration" in ".gh-main-section:last-child > div:last-child a" 
-    Then I take a screenshot
     And I wait for 1 seconds    
     And I set value for "integration name" in "#new-integration-name" to "random"
     Then I take a screenshot
@@ -129,5 +145,5 @@ Feature: Ghost 4.47
     And I wait for 2 seconds 
     Then I take a screenshot   
     And I validate "integration name" "random" ".gh-main-section:last-child .apps-grid .apps-grid-cell:last-child .apps-card-app-title"
-    Then I take a screenshot
+
   
