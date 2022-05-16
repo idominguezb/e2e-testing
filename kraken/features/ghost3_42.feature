@@ -29,30 +29,38 @@ Feature: Ghost 3.42
     Then I take a screenshot
     Then I check the first row with tittle 'New page'
 
-  @user6 @web
+
+ @user2 @web
   Scenario: Creación exitosa de un post
     Given I navigate to page "http://localhost:3001/ghost/"
     And I wait for 5 seconds
     When I enter email "<USER>" and pass "<PASSWORD>"
+    Then I take a screenshot
     And I wait for 5 seconds
-    And I click log in
+    When I click on button with id 'ember12'
+  
     And I wait for 5 seconds
+    Then I take a screenshot
     And I new post click
+    Then I take a screenshot
     And I wait for 2 seconds
     And I write the title of my post: 'This is my first my post !!!'
     And I wait for 2 seconds
     And I write a short text
     And I wait for 5 seconds
+    Then I take a screenshot
     And I click dropdown
+    Then I take a screenshot
     And I wait for 5 seconds
     And I click publish
     And I wait for 8 seconds
-    And I click confirm
+    Then I take a screenshot
     And I wait for 5 seconds
     And I back to lists post
     And I wait for 5 seconds
-    Then I validate the title of post 2
+    Then I validate the title of post 3
     And I wait for 5 seconds
+     Then I take a screenshot
 
   @user7 @web
   Scenario: Creación exitosa de un Tag
@@ -99,6 +107,43 @@ Feature: Ghost 3.42
     Given I navigate to page "http://localhost:3001/ghost/#/settings/integrations"
     And I wait for 2 seconds    
     Then I take a screenshot
+
+
+    
+
+  @user10 @web
+  Scenario: Creación exitosa de un post programada
+    Given I navigate to page "http://localhost:3001/ghost/"
+    And I wait for 5 seconds
+    When I enter email "<USER>" and pass "<PASSWORD>"
+    Then I take a screenshot
+    And I wait for 5 seconds
+  When I click on button with id 'ember12'
+    And I wait for 5 seconds
+    Then I take a screenshot
+    And I new post click
+     
+    And I wait for 5 seconds
+    Then I take a screenshot
+    And I write the title of my post: 'This is my first my post programmed !!!'
+    And I wait for 5 seconds
+    And I write a short text
+    And I wait for 5 seconds
+    Then I take a screenshot
+    And I click dropdown
+     Then I take a screenshot
+    And I wait for 5 seconds
+    And I click publish program
+     Then I take a screenshot
+    And I wait for 5 seconds
+ 
+    And I back to lists post
+     Then I take a screenshot
+    And I wait for 5 seconds
+    Then I validate the title of post 4
+     Then I take a screenshot
+    And I wait for 5 seconds
+ 
 
 
   
