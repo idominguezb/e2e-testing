@@ -11,7 +11,7 @@ describe('Tag Flow', () => {
 
 function login() {
   cy.get('#ember7').type('prueba@example.com', { force: true });
-  cy.get('#ember9').type('desarrollo', { force: true });
+  cy.get('#ember9').type('prueba@example.com123456789', { force: true });
   cy.wait(1000);
   const signin = cy.get('#ember11');
   signin.click()
@@ -59,9 +59,9 @@ function createNewTagInvalidDescription(){
   const button = cy.get('a[href="#/tags/new/"]');
   button.click();
   const tagName = cy.get('#tag-name');
-  const tagDescription = cy.get('#tag-description');
+   cy.get('#tag-description').type(makeDescription(501));
   cy.screenshot()
-  tagDescription.type(makeDescription(501));
+
   cy.screenshot()
   const saveButton = cy.get('html:nth-of-type(1) > body:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > main:nth-of-type(1) > section:nth-of-type(1) > form:nth-of-type(1) > div:nth-of-type(1) > header:nth-of-type(1) > section:nth-of-type(1) > button:nth-of-type(1) > span:nth-of-type(1)');
   saveButton.click()
