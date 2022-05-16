@@ -73,7 +73,7 @@ Para hacer las pruebas de regresion se recomienda ejecutar las pruebas de ghost 
    * Ejecutar todas las pruebas `cypress run`
 
 ## Kraken
-*Para realizar las pruebas de regresion se recomiendo ejecutar primero las pruebas de ghost 4.47 que estaran en el archivo para esto puede ejecutar el comando `npm run enablev4` y luego `npx kraken-node run` desde la carpeta kraken* `ghost4_47.feature` 
+*Para realizar las pruebas de regresion se recomiendo ejecutar primero las pruebas de ghost 4.47 que estaran en el archivo para esto puede ejecutar el comando `npm run enablev4` y luego `npm run start` desde la carpeta kraken* `ghost4_47.feature` 
  <br>
 
 1. Ingrese a la carpeta kraken desde la terminal 
