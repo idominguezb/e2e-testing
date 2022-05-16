@@ -12,11 +12,13 @@ describe('Integration Flow', () => {
 });
 
 function login() {
-    cy.get('#ember8').type('prueba@example.com', { force: true });
-    cy.get('#ember10').type('prueba@example.com123456789', { force: true });
+    cy.get("[name='identification']").type('prueba@example.com', { force: true });
+    cy.get("[name='password']").type('prueba@example.com123456789', {
+        force: true,
+    });
     cy.wait(1000);
 
-    cy.get('#ember12').click({ force: true });
+    cy.get('.js-login-button').click({ force: true });
     cy.wait(5000);
     cy.screenshot()
 }
