@@ -73,12 +73,16 @@ Para hacer las pruebas de regresion se recomienda ejecutar las pruebas de ghost 
    * Ejecutar todas las pruebas `cypress run`
 
 ## Kraken
-*Para realizar las pruebas de regresion se recomiendo ejecutar primero las pruebas de ghost 4.47 que estaran en el archivo* `ghost4_47.feature`
+*Para realizar las pruebas de regresion se recomiendo ejecutar primero las pruebas de ghost 4.47 que estaran en el archivo para esto puede ejecutar el comando `npm run enablev4` y luego `npm run start` desde la carpeta kraken* `ghost4_47.feature` 
  <br>
 
 1. Ingrese a la carpeta kraken desde la terminal 
 2. Ejecute el comando `npm install`
-3. Ejecute el comando `npx kraken-node run`
+3. Si desea:
+  * Ejecutar solo los 5 feature para realizar el VRT `npm run enablev4` 
+  * Ejecutar solo los 5 feature de la version 3.42 `npm run enablev3`
+  * Ejecutar todos `npm run enableAll`  
+4. Ejecute el comando `npm run start` para empezar con la ejecucion
 <br>
 *Nota: en caso de que aparezca este error al ejecutar handleErrorFromBinding(ctx) se deben ejecutar las pruebas individualmente.*
 
